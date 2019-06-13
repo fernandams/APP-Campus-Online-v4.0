@@ -2,6 +2,8 @@
 Repositório para o desenvolvimento da nova versão do APP Campus Online.
 
 ## Environment
+Virtualenv é um ambiente virtual dp python que permite instalar bibliotecas para cada aplicação isoladas da máquina.
+
 Em relação ao git, o env fica no .gitignore
 
 Depois de clonado o repositório, é necessário criar um env (virtualenv), ativá-lo e instalar o que for necessário, seguem os comandos:

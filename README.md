@@ -8,7 +8,12 @@ Depois de clonado o repositório, é necessário criar um env (virtualenv), ativ
 
 1. virtualenv -p python3 env (comando para criar um virtualenv)
 2. source env/bin/activate (comando para ativar o env)
+* Sempre que for instalar algo ou executar a aplicação é necessário usar esse comando para ativar o ambiente
+* Se quiser sair do ambiente basta digitar: deactivate
 3. pip install -r requirements.txt 
 * É possível utilizar esse 3º comando visto que o comando pip freeze mostra tudo que está instalado no env, e o seguinte comando:
 * Pip freeze > requirements.txt 
 * grava nesse arquivo txt o que está instalado. 
+
+
+

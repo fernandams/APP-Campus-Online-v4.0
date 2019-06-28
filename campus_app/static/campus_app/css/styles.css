@@ -1,20 +1,117 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.app {
+ text-align: center;
+ --color-1: #6c0318;
+ --color-2: #b5202e;
+ --color-3: #ff9000;
+ --color-4: #f9c19a;
 }
+.app-header {
+    height: fit-content;
+    width: 100%;
+    background-color: #6c0318;
+    margin-bottom: 10px;
+}
+.app-logo {
+    width: 80%;
+    padding: 15px 0px;
+}
+.app-title {
+    padding-top: 10px;
+    font-weight: bold;
+}
+#calendar-region {
+    display: flex;
+    justify-content: center;
+}
+sidenav {
+    display: none;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #6c0318;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+header {
+    backface-visibility: hidden;
+}
+sidenav p {
+	text-decoration: none;
+    font-size: 20px;
+    color: #e8e8e8;
+    display: block;
+}
+sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 25px;
+}
+sidenav .closebtn:hover {
+	color: #e8e8e8;
+	background-color: #6c0318;
+	box-shadow: 0px 0px 0px;
+}
+sidenav a {
+	padding: 2px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #de8d2e;
+    display: block;
+    transition: 0.3s;
+	font-weight: lighter;
+	text-align: left;
+	text-indent: 1em;
+}
+sidenav a:hover {
+    color: #f1f1f1;
+}
+.burger {
+    font-size: 30px;
+    cursor: pointer;
+}
+.calendar-button {
+    padding: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+	background-color: white;
+    border: 3px solid #942832;
+    border-radius: 10px;
+    color: #942832;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.calendar-button:hover {
+    background-color: #942832;
+    color: white;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
 body {
     margin: 0 auto;
     line-height: 1.7em;
+    font-family: sans-serif;
 }
+
 .content {
     padding-top: 2em;
 }
 .l-box {
     padding: 1em;
-}
-.header {
-    margin: 0 0;
 }
 .header .pure-menu {
     padding: 0.5em;
@@ -70,10 +167,13 @@ body .primary-button {
     font-weight: normal;
 }
 .footer {
-    background: #6c0318;
-    color: #666;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6c0318;
+    color: #fff;
     text-align: left;
-    padding: 1em;
-    font-size: 80%;
+    padding-left: 20px;
+    z-index: 2;
 }
-

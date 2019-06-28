@@ -9,80 +9,50 @@
         <link rel="stylesheet" href="{% static 'campus_app/css/styles.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <style>
-           .sidenav {
-              display: none;
-              height: 100%;
-              width: 250px;
-              position: fixed;
-              z-index: 1;
-              top: 0;
-              left: 0;
-              background-color: #6c0318;
-              overflow-x: hidden;
-              padding-top: 60px;
-           }
-           .sidenav a {
-              padding: 8px 8px 8px 32px;
-              text-decoration: none;
-              font-size: 25px;
-              color: #de8d2e;
-              display: block;
-           }
-           .sidenav a:hover {
-              color: #f1f1f1;
-           }
-           .sidenav .closebtn {
-              position: absolute;
-              top: 0;
-              right: 25px;
-              font-size: 36px;
-              margin-left: 25px;
-           }
-           @media screen and (max-height: 450px) {
-             .sidenav {padding-top: 15px;}
-             .sidenav a {font-size: 18px;}
-           }
-        </style>
+        <meta name="theme-color" content="#536878">
     </head>
     <body>
-        <div class="header">
-            <div id="mySidenav" class="sidenav">
-               <!-- <p align="right"><span style="font-size:30px;cursor:pointer" onclick="closeNav()"><i class="material-icons">cancel</i></span></p>-->
-                <p align="right"><a href="" className="closebtn" onClick={closeNav()}><i class='material-icons'>cancel</i></a></p>
-                <p>Plataformas do<br />Campus Online<br />
-                  <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
-                  <a href="https://twitter.com/campusitounb" className="twitter" onClick={this.closeNav}>Twitter</a>
-                  <a href="https://www.facebook.com/onlinecampus/" className="facebook" onClick={this.closeNav}>Facebook</a>
-                  <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
-                  <a href="https://www.youtube.com/channel/UC6a5zNtTLs-yGnHn9nkUIyw" onClick={this.closeNav}>Youtube</a>
-                </p>
-                <p>Links da FAC<br />
-                  <a href="http://fac.unb.br/" onClick={this.closeNav}>Site</a>
-                  <a href="https://twitter.com/fac_unb" onClick={this.closeNav}>Twitter</a>
-                  <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={this.closeNav}>Facebook</a>
-                  <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
-                  <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
-                </p>
-                <br/><br/>
-                <p> <Link to='/addnews' onClick={this.closeNav}>Adicionar notícias</Link> </p>
-              </nav>
+        <div class="app">
+            <header>
+                <sidenav id="mySidenav" class="sidenav">
+                   <!-- <p align="right"><span style="font-size:30px;cursor:pointer" onclick="closeNav()"><i class="material-icons">cancel</i></span></p>-->
+                    <a href="" class="closebtn" onClick={closeNav()}><i class='material-icons'>cancel</i></a>
+                    <p>Plataformas do<br />Campus Online<br />
+                      <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
+                      <a href="https://twitter.com/campusitounb" className="twitter" onClick={this.closeNav}>Twitter</a>
+                      <a href="https://www.facebook.com/onlinecampus/" className="facebook" onClick={this.closeNav}>Facebook</a>
+                      <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
+                      <a href="https://www.youtube.com/channel/UC6a5zNtTLs-yGnHn9nkUIyw" onClick={this.closeNav}>Youtube</a>
+                    </p>
+                    <p>Links da FAC<br />
+                      <a href="http://fac.unb.br/" onClick={this.closeNav}>Site</a>
+                      <a href="https://twitter.com/fac_unb" onClick={this.closeNav}>Twitter</a>
+                      <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={this.closeNav}>Facebook</a>
+                      <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
+                      <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
+                    </p>
+                    <br/><br/>
+                    <p> <Link to='/addnews' onClick={this.closeNav}>Adicionar notícias</Link> </p>
+                </sidenav>
+                <p align="center"><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></p>
+                <script>
+                    function openNav() {
+                      document.getElementById("mySidenav").style.display = "block";
+                    }
+                    function closeNav() {
+                      document.getElementById("mySidenav").style.display = "none";
+                    }
+                </script>
+            </header>
+            <div class="app-header">
+              <img src="{% static 'campus_app/imagens/Logo-Campus1.png' %}" class="app-logo" alt="logo">
             </div>
-            <p align="center"><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></p>
-            <script>
-                function openNav() {
-                  document.getElementById("mySidenav").style.display = "block";
-                }
-                function closeNav() {
-                  document.getElementById("mySidenav").style.display = "none";
-                }
-            </script>
-        </div>
-        <div class="content">
-            {% block content %}{% endblock %}
-        </div>
-        <div class="footer">
-           <h4>2019 FAC/CIC<h4>
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+            <footer>
+               <h4>2019 FAC/CIC</h4>
+            </footer>
         </div>
     </body>
 </html>

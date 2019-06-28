@@ -1,0 +1,179 @@
+.app {
+ text-align: center;
+ --color-1: #6c0318;
+ --color-2: #b5202e;
+ --color-3: #ff9000;
+ --color-4: #f9c19a;
+}
+.app-header {
+    height: fit-content;
+    width: 100%;
+    background-color: #6c0318;
+    margin-bottom: 10px;
+}
+.app-logo {
+    width: 80%;
+    padding: 15px 0px;
+}
+.app-title {
+    padding-top: 10px;
+    font-weight: bold;
+}
+#calendar-region {
+    display: flex;
+    justify-content: center;
+}
+sidenav {
+    display: none;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #6c0318;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+header {
+    backface-visibility: hidden;
+}
+sidenav p {
+	text-decoration: none;
+    font-size: 20px;
+    color: #e8e8e8;
+    display: block;
+}
+sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 25px;
+}
+sidenav .closebtn:hover {
+	color: #e8e8e8;
+	background-color: #6c0318;
+	box-shadow: 0px 0px 0px;
+}
+sidenav a {
+	padding: 2px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #de8d2e;
+    display: block;
+    transition: 0.3s;
+	font-weight: lighter;
+	text-align: left;
+	text-indent: 1em;
+}
+sidenav a:hover {
+    color: #f1f1f1;
+}
+.burger {
+    font-size: 30px;
+    cursor: pointer;
+}
+.calendar-button {
+    padding: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+	background-color: white;
+    border: 3px solid #942832;
+    border-radius: 10px;
+    color: #942832;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.calendar-button:hover {
+    background-color: #942832;
+    color: white;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+body {
+    margin: 0 auto;
+    line-height: 1.7em;
+    font-family: sans-serif;
+}
+
+.content {
+    padding-top: 2em;
+}
+.l-box {
+    padding: 1em;
+}
+.header .pure-menu {
+    padding: 0.5em;
+}
+.header .pure-menu li a:hover,
+.header .pure-menu li a:focus {
+    background: none;
+    border: none;
+    color: #aaa;
+}
+body .primary-button {
+    background: #02a6eb;
+    color: #fff;
+}
+.splash {
+    margin: 0 auto;
+    padding: 1.5em 1em 0;
+    background: #eee;
+}
+.splash .splash-head {
+    font-size: 300%;
+    margin: 0em 0;
+    line-height: 1.2em;
+}
+.splash .splash-subhead {
+    color: #999;
+    font-weight: 300;
+    line-height: 1.4em;
+}
+.splash .primary-button {
+    font-size: 150%;
+}
+.content .content-subhead {
+    color: #999;
+    padding-bottom: 0.3em;
+    text-transform: uppercase;
+    margin: 0;
+    border-bottom: 2px solid #eee;
+    display: inline-block;
+}
+.content .content-ribbon {
+    margin: 3em;
+    border-bottom: 1px solid #eee;
+}
+.ribbon {
+    background: #eee;
+    text-align: center;
+    padding: 2em;
+    color: #999;
+}
+.ribbon h2 {
+    display: inline;
+    font-weight: normal;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6c0318;
+    color: #fff;
+    text-align: left;
+    padding-left: 20px;
+    z-index: 2;
+}

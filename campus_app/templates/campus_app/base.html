@@ -32,7 +32,12 @@
                       <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
                     </p>
                     <br/><br/>
+                    {% if user.is_authenticated %}
+                    <p><a href="{% url 'logout' %}">Sair</a></p>
+                    {% else %}
                     <p> <a href="{% url 'login' %}">Entrar</a></p>
+                    {% endif %}
+                   
                 </sidenav>
                 <p align="center"><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></p>
                 <script>

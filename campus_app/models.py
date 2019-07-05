@@ -13,7 +13,6 @@ class Usuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_usuario")
     cod_perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, related_name="usuario_perfil")
     cpf = models.CharField(max_length=20)
-    ativo = models.CharField(max_length=1)
     login_atualizacao = models.CharField(max_length=150)
     data_atualizacao = models.DateTimeField()
 

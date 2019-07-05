@@ -1,6 +1,3 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 # Create your views here.
-
-def login(request):
-    return render(request, 'accounts/login.html') # para renderizar o template login.html (localizado dentro da pasta da accounts/templates/accounts)

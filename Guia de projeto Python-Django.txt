@@ -23,6 +23,7 @@ Observação: Utilizar o método de encriptação de chave legado que correspond
 plugin mysql_native_password. O cashing_sha2_password não é suportado pelo Django.
 
 Passo 7 (opcional): Criar o DB da aplicação caso não exista.
+Comando: create database campus_online_app;
 
 Passo 8: Configurar o BD no arquivo Settings.py conforme a seguinte configuração.
 DATABASES = {
@@ -38,7 +39,7 @@ DATABASES = {
 
 Passo 9: Instalar o cliente MySQL via pip.
 Comando: pip install mysqlclient
-Observação: Se a instalação falhar, a maneira mais fácil de solucionar é a instalação de um whl de terceiro.
+Observação: Se a instalação falhar no WINDOWS, a maneira mais fácil de solucionar é a instalação de um whl de terceiro.
 No site https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient procure pelo MySQL Client correspondente a sua
 versão de Python. Para a versão 3.7 x32 aversão correta é a mysqlclient-1.4.2-cp37-cp37m-win32.whl. Depois de 
 baixado basta instalar com o comando "pip install "caminho de onde o arquivo foi baixado". 

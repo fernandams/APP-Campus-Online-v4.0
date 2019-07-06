@@ -7,3 +7,4 @@ from django.shortcuts import render
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name="accounts/dashboard.html"
     login_url = 'login'
+

@@ -1,3 +1,11 @@
+.app-content {
+    text-align: left;
+    padding-bottom: 0.3em;
+    margin: 0;
+    border-bottom: 2px solid #eee;
+    display: inline-block;
+}
+
 .app {
  text-align: center;
  --color-1: #6c0318;
@@ -94,8 +102,8 @@ sidenav a:hover {
 }
 
 body {
-    margin: 0 auto;
-    line-height: 1.7em;
+    margin: 0;
+    padding: 0;
     font-family: sans-serif;
 }
 
@@ -233,7 +241,7 @@ button:hover {
 	cursor: not-allowed;
 }
 
-/*################################### CSS NEWS ADD ###################################*/
+/*################################### CSS NEWS ITEM ###################################*/
 
 .newsItem {
 	background-color: white;
@@ -318,4 +326,30 @@ p {
 
 .link:hover {
 	background-color: #de8d2e;
+}
+
+/*################################### CSS NEWS LIST ###################################*/
+
+.newsList .dateDivider {
+	text-align: center;
+    margin: 25px -25px 25px -25px;
+	padding: 10px 0px;
+	background-color: #942832;
+	color: white;
+	font-weight: 600;
+	font-size: 1.2em;
+	box-shadow: inset 0px 10px 20px -10px #000;
+	z-index: 1;
+}
+
+.newsList span {
+	margin: 70px 35px 0px 35px;
+	display: inline-block;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.5em;
+	background-color: #942832;
+	padding: 10px;
+	border-radius: 4px;
+	color: white;
 }

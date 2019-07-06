@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="Home">
-        <div class="app-content">
-
-        {% for noticia in noticias %}
+  <div id="Home">
+    <div class="app-content">
+      <div class="newsList">
+        <div class="newsItem">
+          {% for noticia in noticias %}
+            <div class="dateDivider">{{ noticia.data_publicacao }}</div>
             <div class="headline upper">{{ noticia.titulo }}</div>
             <div class="texto">
-                <p>{{ noticia.texto }}</p>
+              <p>{{ noticia.texto }}</p>
             </div>
-
-        {% endfor %}
-
+          {% endfor %}
         </div>
+        <div style="height: 100px;"></div>
       </div>
+    </div>
+  </div>
 {% endblock %}

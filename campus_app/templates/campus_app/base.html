@@ -39,7 +39,7 @@
                     {% endif %}
                    
                 </sidenav>
-                <p align="center"><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></p>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 <script>
                     function openNav() {
                       document.getElementById("mySidenav").style.display = "block";
@@ -52,7 +52,7 @@
             <div class="app-header">
               <img src="{% static 'campus_app/imagens/Logo-Campus1.png' %}" class="app-logo" alt="logo">
             </div>
-            <div class="content">
+            <div class="app-content">
                 {% block content %}{% endblock %}
             </div>
             <footer class="footer">

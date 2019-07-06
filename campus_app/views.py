@@ -10,5 +10,3 @@ def home (request):
 
 def contato(request):
     return render(request, 'campus_app/contato.html')
-
-

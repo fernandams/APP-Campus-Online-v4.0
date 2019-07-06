@@ -20,9 +20,14 @@ class _PasswordChangeView(PasswordChangeView):
 class _PasswordChangeDoneView(PasswordChangeDoneView):
     template_name='accounts/password_change_done.html'
 
+class _UserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
+
 class CreateUser(FormView):
     template_name = 'accounts/user_form.html'
-    form_class = UserCreationForm
+    form_class = _UserCreationForm
     success_url = 'usuario-inserido-com-sucesso'
     def form_valid(self, form):
         form.save()

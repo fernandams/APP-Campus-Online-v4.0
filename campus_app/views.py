@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Noticia
 from django.views.generic.base import TemplateView
+import datetime
 
 # Create your views here.
 
@@ -10,6 +11,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['noticias'] = Noticia.objects.all
+        context['data'] = datetime.date.today()
         return context
 
 class ContatoView(TemplateView):

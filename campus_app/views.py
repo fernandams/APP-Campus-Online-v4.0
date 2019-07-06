@@ -1,10 +1,12 @@
-from django.views.generic.base import TemplateView
 from django.shortcuts import render
+from .models import Noticia
 
 # Create your views here.
 
-class HomeView(TemplateView):
-    template_name="campus_app/home.html"
+def home (request):
+    data = {}
+    data['noticias'] = Noticia.objects.all()
+    return render(request, 'campus_app/home.html', data)
 
-class ContatoView(TemplateView):
-    template_name ="campus_app/contato.html"
+def contato(request):
+    return render(request, 'campus_app/contato.html')

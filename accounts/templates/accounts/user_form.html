@@ -6,9 +6,6 @@
         <h2>Informe os dados do usuário</h2>
         <form class="pure-form pure-form-stacked" method="post">
             {% csrf_token %}
-            {% if success %}
-            <p>Usuário inserido com sucesso!!!</p>
-            {% endif %}
             <fieldset>
                 {{ form.non_field_errors }}
 
@@ -21,7 +18,7 @@
                 {% endfor %}
 
                 <div class="pure-controls">
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit">Salvar</button>
                 </div>
             </fieldset>
         </form>

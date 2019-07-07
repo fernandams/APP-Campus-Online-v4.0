@@ -1,7 +1,8 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from . import views
-from .views import DashboardView, _PasswordChangeView, _PasswordChangeDoneView, CreateUser, UserCreated
+from .views import (DashboardView, _PasswordChangeView, _PasswordChangeDoneView, 
+    CreateUser, UserCreated, UsersView, UpdateUser, UsersView)
 
 
 urlpatterns = [
@@ -11,5 +12,7 @@ urlpatterns = [
     path('alterar-senha/', _PasswordChangeView.as_view(), name='edit_password'),
     path('alterar-senha/senha-alterada-com-sucesso', _PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('novo-usuario/', CreateUser.as_view(), name='new_user'),
-    path('novo-usuario/usuario-inserido-com-sucesso', UserCreated.as_view())
+    path('novo-usuario/usuario-inserido-com-sucesso', UserCreated.as_view()),
+    path('atualizar-usuario/<int:pk>/', UpdateUser, name='update_user'),
+    path('usuarios/', UsersView.as_view(), name='users')
 ]

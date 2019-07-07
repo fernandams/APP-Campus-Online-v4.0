@@ -4,13 +4,31 @@
 <div class="pure-g-r content-ribbon">
     <div class="pure-u-1">
         <h2>Usuários</h2>
-        <ul>       
+        <table>
+            <tr>
+                <th>Usuário</th>
+                <th>Primeiro Nome</th>
+                <th>Último Nome</th>
+                <th>Email</th>
+                <th>Ativo</th>
+                <th> </th>
+            </tr>
             {% for user in users %}
-                <li><a href="{% url 'update_user' user.id %}">{{ user }} - {{ user.first_name }} - {{ user.last_name }} -
-                     {{ user.email }} </a> </li>
+            <tr> 
+               <td> {{ user }} </td>
+               <td> {{ user.first_name }} </td>
+               <td> {{ user.last_name }} </td>
+               <td> {{ user.email }} </td>
+            {% if user.is_active%}
+                <td>Sim</td> 
+            {% else %}
+                <td>Não</td>
+            {% endif %} 
+               <td> <a href="{% url 'update_user' user.id %}">Editar</a> </td>
+            </tr>
             {% endfor %}
-            </ul>
-            <a href="{% url 'new_user' %}">Novo</a>
+        </table>
+        <a href="{% url 'new_user' %}">Novo</a>
     </div>
 </div>
 {% endblock %}

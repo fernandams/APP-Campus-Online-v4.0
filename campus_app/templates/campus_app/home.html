@@ -19,7 +19,7 @@
           {% for noticia in noticias %}
             <div class="dateDivider">{{ noticia.data_publicacao | date:"d/m/Y" }}</div>
             <div class="headline upper">{{ noticia.titulo }}</div>
-            <div class="timestamp">{{ noticia.data_publicacao | date:"d/m/Y h:m:s" }}</div>
+            <div class="timestamp">{{ noticia.data_publicacao | date:"d/m/Y H:i:s" }}</div>
             <div class="media">
               {% if noticia.link_video %}
                 <iframe class="newsVideo" src="{{ noticia.link_video }}"></iframe>

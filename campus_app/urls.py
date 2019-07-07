@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import HomeView, NoticiaView
+from .views import HomeView, NoticiaCreate
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('noticia_form/', NoticiaView.as_view(), name='noticia_form'),
+    path('noticia_create_form/', NoticiaCreate.as_view(), name='noticia_create_form'),
 ]

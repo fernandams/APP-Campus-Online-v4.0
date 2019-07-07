@@ -1,9 +1,10 @@
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm, UserChangeForm
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from .forms import _UserCreationForm, _UserChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -21,11 +22,6 @@ class _PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 class _PasswordChangeDoneView(LoginRequiredMixin, PasswordChangeDoneView):
     template_name='accounts/password_change_done.html'
 
-class _UserCreationForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
-
 class CreateUser(LoginRequiredMixin, FormView):
     template_name = 'accounts/user_form.html'
     form_class = _UserCreationForm
@@ -41,7 +37,7 @@ class UserCreated(LoginRequiredMixin, TemplateView):
 def UpdateUser(request, pk):
     data = {}
     user = User.objects.get(pk=pk)
-    form = UserChangeForm(request.POST or None, instance=user) 
+    form = _UserChangeForm(request.POST or None, instance=user) 
     if form.is_valid(): 
         form.save() 
         return redirect('users')

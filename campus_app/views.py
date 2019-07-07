@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.db.models import DateTimeField
@@ -23,7 +24,7 @@ class HomeView(TemplateView):
         return context
 
 
-class NoticiaCreate(CreateView):
+class NoticiaCreate(LoginRequiredMixin, CreateView):
     model = Noticia
     fields = ['cod_usuario', 'titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']

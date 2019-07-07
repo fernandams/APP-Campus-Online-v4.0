@@ -191,11 +191,14 @@ body .primary-button {
 	padding: 15px 10px;
 }
 
+
 .news-add h3, .key-login h3 {
 	font-size: 20px;
 	font-weight: bold;
 	color: #b5202e;
 	margin-bottom: 5px;
+	text-align: justify;
+	text-align-last: left;
 }
 .upper{
 	text-transform: uppercase;
@@ -291,7 +294,7 @@ p {
 }
 
 .timestamp {
-	color: #BBB;
+	color: #5a5a5a;
 	font-size: 12px;
 	min-width: fit-content;
 }

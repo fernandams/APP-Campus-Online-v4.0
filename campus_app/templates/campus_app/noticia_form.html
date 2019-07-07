@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="news-add">
+      <h3>
+        <p> <a class="btn" href='/'>Home</a> </p>
+        <form method="post">
+          {% csrf_token %}
+          <p>{{ form.titulo }}</p>
+          <div class="error">{{ form.titulo.errors }}</div>
+          <p>{{ form.texto }}</p>
+          <div class="error">{{ form.texto.errors }}</div>
+          <input type="submit" value="Salvar">
+        </form>
+      </h3>
+      <div style="height: 100px;"></div>
+    </div>
+{% endblock %}

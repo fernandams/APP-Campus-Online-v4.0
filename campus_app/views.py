@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Noticia
+from .forms import NoticiaForm
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView, CreateView
 import datetime
 
 # Create your views here.
@@ -14,5 +16,11 @@ class HomeView(TemplateView):
         context['data'] = datetime.date.today()
         return context
 
-class ContatoView(TemplateView):
-    template_name="campus_app/contato.html"
+
+class NoticiaView(FormView):
+    form_class = NoticiaForm
+    success_url = '/noticia_form/sucesso/'
+    template_name = "campus_app/noticia_form.html"
+
+    def form_valid(self, form):
+        return super().form_valid(form)

@@ -1,5 +1,6 @@
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import (PasswordChangeView, PasswordChangeDoneView,
+    PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView)
+from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from .forms import _UserCreationForm, _UserChangeForm
@@ -21,6 +22,24 @@ class _PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 
 class _PasswordChangeDoneView(LoginRequiredMixin, PasswordChangeDoneView):
     template_name='accounts/password_change_done.html'
+
+class _PasswordResetView(PasswordResetView):
+    template_name = 'accounts/password_reset.html'
+    form_class = PasswordResetForm
+    email_template_name = 'accounts/password_reset_mail.html'
+    subject_template_name = 'accounts/password_reset_subject.txt'
+    success_url = 'nova-senha-solicitada'
+
+class _PasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'accounts/password_reset_done.html'
+
+class _PasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'accounts/password_reset_confirm.html'
+    form_class = SetPasswordForm
+    success_url = 'senha-redefinida-com-sucesso'
+
+class _PasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'accounts/password_reset_complete.html'
 
 class CreateUser(LoginRequiredMixin, FormView):
     template_name = 'accounts/user_form.html'

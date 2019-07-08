@@ -5,8 +5,6 @@
         <p> <a class="btn" href="{% url 'noticia_list' %}">Cancelar</a> </p>
         <form method="post">
           {% csrf_token %}
-          <p>{{ form.cod_usuario }}</p>
-          <div class="error">{{ form.cod_usuario.errors }}</div>
           <h3>Título</h3>
           <p>{{ form.titulo }}</p>
           <div class="error">{{ form.titulo.errors }}</div>
@@ -26,6 +24,7 @@
           <p>{{ form.link_foto }}</p>
           <div class="error">{{ form.link_foto.errors }}</div>
           <input class="btn" type="submit" value="Salvar">
+          <a class="btn" href="{% url 'noticia_confirm_delete' noticia.id %}">Remover</a>
         </form>
       <div style="height: 100px;"></div>
     </div>

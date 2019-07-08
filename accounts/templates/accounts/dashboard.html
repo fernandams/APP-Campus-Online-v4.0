@@ -13,6 +13,8 @@
         <div class="pure-menu pure-menu-open">
             <p>Olá, {{ user.first_name }} {{ user.last_name }} </p>
             <ul> 
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'noticia_list' %}">Notícias</a></li>
                 {% if perms.auth.view_user %}
                 <li><a href="{% url 'users' %}">Usuários</a></li>
                 {% endif %}
@@ -28,6 +30,7 @@
             <p><strong>E-mail</strong>: {{ user.email }}</p>
             {% endblock %}
         </div>
+        <div style="height: 100px;"></div>
     </div>
 </div>
 {% endblock %}

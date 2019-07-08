@@ -10,8 +10,8 @@ import datetime
 from django.contrib.auth.models import User
 from datetime import date
 from django.db.models.functions import Trunc
-from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,
-)
+from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,)
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -24,7 +24,7 @@ class HomeView(TemplateView):
         context['data'] = datetime.date.today()
         return context
 
-
+      
 class NoticiaView(LoginRequiredMixin, TemplateView):
     template_name = "campus_app/noticia_list.html"
 
@@ -33,7 +33,7 @@ class NoticiaView(LoginRequiredMixin, TemplateView):
         context['noticias'] = Noticia.objects.order_by('-data_publicacao').all
         return context
 
-
+      
 class NoticiaCreate(LoginRequiredMixin, CreateView):
     model = Noticia
     fields = ['titulo', 'texto', 'prioridade',

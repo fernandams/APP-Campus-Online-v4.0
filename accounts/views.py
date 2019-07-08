@@ -4,10 +4,11 @@ from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm, Set
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from .forms import _UserCreationForm, _UserChangeForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.core.exceptions import PermissionDenied
 
 # Create your views here.
 
@@ -41,21 +42,27 @@ class _PasswordResetConfirmView(PasswordResetConfirmView):
 class _PasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'accounts/password_reset_complete.html'
 
-class CreateUser(LoginRequiredMixin, FormView):
+class CreateUser(LoginRequiredMixin, PermissionRequiredMixin, FormView):
     template_name = 'accounts/user_form.html'
+    permission_required = 'auth.add_user'
     form_class = _UserCreationForm
     success_url = 'usuario-inserido-com-sucesso'
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
 
-class UserCreated(LoginRequiredMixin, TemplateView):
+class UserCreated(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     template_name = 'accounts/user_create_done.html'
+    permission_required = 'auth.add_user'
 
 @login_required
 def UpdateUser(request, pk):
+    if not request.user.has_perm('auth.change_user'):
+        raise PermissionDenied
     data = {}
     user = User.objects.get(pk=pk)
+    if User.objects.filter(pk=pk, is_superuser=True):
+       raise PermissionDenied
     form = _UserChangeForm(request.POST or None, instance=user) 
     if form.is_valid(): 
         form.save() 
@@ -64,9 +71,10 @@ def UpdateUser(request, pk):
     data['user'] = user
     return render(request, 'accounts/user_form.html', data)
 
-class UsersView(LoginRequiredMixin, TemplateView):
+class UsersView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     template_name = 'accounts/users.html'
+    permission_required = 'auth.view_user'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['users'] = User.objects.all 
+        context['users'] = User.objects.all
         return context

@@ -8,8 +8,8 @@ from django.views.generic.edit import FormView, CreateView
 import datetime
 from datetime import date
 from django.db.models.functions import Trunc
-from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,
-)
+from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,)
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -23,7 +23,7 @@ class HomeView(TemplateView):
         return context
 
 
-class NoticiaCreate(CreateView):
+class NoticiaCreate(LoginRequiredMixin, CreateView):
     model = Noticia
     fields = ['cod_usuario', 'titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']

@@ -11,6 +11,7 @@
                 <th>Último Nome</th>
                 <th>Email</th>
                 <th>Ativo</th>
+                <th>Perfil</th>
                 <th> </th>
             </tr>
             {% for user in users %}
@@ -19,12 +20,20 @@
                <td> {{ user.first_name }} </td>
                <td> {{ user.last_name }} </td>
                <td> {{ user.email }} </td>
-            {% if user.is_active%}
+
+               {% if user.is_active%}
                 <td>Sim</td> 
-            {% else %}
+                {% else %}
                 <td>Não</td>
-            {% endif %} 
-               <td> <a href="{% url 'update_user' user.id %}">Editar</a> </td>
+                {% endif %} 
+
+                {% if not user.is_superuser %} 
+                <td> {{ user.groups}} </td>
+                <td> <a href="{% url 'update_user' user.id %}">Editar</a> </td>
+
+                {% else %}
+                <td>Administrador</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

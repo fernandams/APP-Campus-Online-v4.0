@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from datetime import date
 from django.db.models.functions import Trunc
 from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,)
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 # Create your views here.
 
@@ -25,7 +25,8 @@ class HomeView(TemplateView):
         return context
 
       
-class NoticiaView(LoginRequiredMixin, TemplateView):
+class NoticiaView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
+    permission_required = 'campus_app.view_noticia'
     template_name = "campus_app/noticia_list.html"
 
     def get_context_data(self, **kwargs):
@@ -34,7 +35,8 @@ class NoticiaView(LoginRequiredMixin, TemplateView):
         return context
 
       
-class NoticiaCreate(LoginRequiredMixin, CreateView):
+class NoticiaCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    permission_required = 'campus_app.add_noticia'
     model = Noticia
     fields = ['titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']
@@ -45,7 +47,8 @@ class NoticiaCreate(LoginRequiredMixin, CreateView):
         return super(NoticiaCreate, self).form_valid(form)
 
 
-class NoticiaUpdate(LoginRequiredMixin, UpdateView):
+class NoticiaUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    permission_required = 'campus_app.change_noticia'
     model = Noticia
     fields = ['titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']
@@ -53,6 +56,7 @@ class NoticiaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'campus_app/noticia_update_form.html'
 
 
-class NoticiaDelete(LoginRequiredMixin, DeleteView):
+class NoticiaDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    permission_required = 'campus_app.delete_noticia'
     model = Noticia
     success_url = reverse_lazy('noticia_list')

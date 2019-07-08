@@ -61,6 +61,8 @@ def UpdateUser(request, pk):
         raise PermissionDenied
     data = {}
     user = User.objects.get(pk=pk)
+    if User.objects.filter(pk=pk, is_superuser=True):
+       raise PermissionDenied
     form = _UserChangeForm(request.POST or None, instance=user) 
     if form.is_valid(): 
         form.save() 

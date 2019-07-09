@@ -1,0 +1,43 @@
+{% extends "accounts/dashboard.html" %}
+
+{% block dashboard_content %}
+<div class="pure-g-r content-ribbon">
+    <div class="pure-u-1">
+        <h2>Usuários</h2>
+        <table>
+            <tr>
+                <th>Usuário</th>
+                <th>Primeiro Nome</th>
+                <th>Último Nome</th>
+                <th>Email</th>
+                <th>Ativo</th>
+                <th>Perfil</th>
+                <th> </th>
+            </tr>
+            {% for user in users %}
+            <tr> 
+               <td> {{ user }} </td>
+               <td> {{ user.first_name }} </td>
+               <td> {{ user.last_name }} </td>
+               <td> {{ user.email }} </td>
+
+               {% if user.is_active%}
+                <td>Sim</td> 
+                {% else %}
+                <td>Não</td>
+                {% endif %} 
+
+                {% if not user.is_superuser %} 
+                <td> {{ user.groups}} </td>
+                <td> <a href="{% url 'update_user' user.id %}">Editar</a> </td>
+
+                {% else %}
+                <td>Administrador</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'new_user' %}">Novo</a>
+    </div>
+</div>
+{% endblock %}

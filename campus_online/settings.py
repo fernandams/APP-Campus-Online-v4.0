@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'campus_app/static/campus_app/js', 'serviceworker.js')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'global_permissions',
     'campus_app',
     'accounts',
-
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +135,7 @@ LOGOUT_URL = 'logout'
 
 # E-mails
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>' # utilizado para enviar os e-mails de recuperação de senha para o usuário
+DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'  # utilizado para enviar os e-mails de recuperação de senha para o usuário
 
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.gmail.com'

@@ -4,9 +4,20 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.dates import DayArchiveView
+from django.core import serializers
+from django.http import HttpResponse
 import datetime
 
 # Create your views here.
+
+
+class BaseLayout(TemplateView):
+    template_name = 'campus_app/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
 
 
 class HomeView(TemplateView):
@@ -69,3 +80,9 @@ class NoticiaDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     permission_required = 'campus_app.delete_noticia'
     model = Noticia
     success_url = reverse_lazy('noticia_list')
+
+
+def getdata(request):
+    results = Noticia.objects.all()
+    json_data = serializers.serialize('json', results)
+    return HttpResponse(json_data)

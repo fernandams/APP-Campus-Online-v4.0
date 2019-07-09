@@ -1,30 +1,39 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.db.models import DateTimeField
 from .models import Noticia
-from .forms import NoticiaForm
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-import datetime
-from django.contrib.auth.models import User
-from datetime import date
-from django.db.models.functions import Trunc
-from django.db.models.functions import (TruncDate, TruncDay, TruncHour, TruncMinute, TruncSecond,)
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.views.generic.dates import DayArchiveView
+import datetime
 
 # Create your views here.
 
+
 class HomeView(TemplateView):
-    template_name="campus_app/home.html"
+    template_name = "campus_app/home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['noticias'] = Noticia.objects.order_by('-dia_publicacao', '-prioridade', '-data_publicacao').all
+        context['noticias'] = Noticia.objects.order_by('-dia_publicacao', '-prioridade', '-data_publicacao')[:20]
         context['data'] = datetime.date.today()
+
         return context
 
-      
+
+class NoticiaDataView(DayArchiveView):
+    queryset = Noticia.objects.order_by('-dia_publicacao', '-prioridade', '-data_publicacao')
+    date_field = "dia_publicacao"
+    allow_future = False
+    allow_empty = True
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['noticias'] = self.queryset
+        context['data'] = datetime.date.today()
+
+        return context
+
+
 class NoticiaView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     permission_required = 'campus_app.view_noticia'
     template_name = "campus_app/noticia_list.html"

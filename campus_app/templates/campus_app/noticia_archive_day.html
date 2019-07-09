@@ -11,23 +11,27 @@
       </div>
       <div class="newsList">
         <div class="newsItem">
-          {% for noticia in noticias %}
-            <div class="dateDivider">{{ noticia.data_publicacao | date:"d/m/Y" }}</div>
-            <div class="headline upper">{{ noticia.titulo }}</div>
-            <div class="timestamp">{{ noticia.data_publicacao | date:"d/m/Y H:i:s" }}</div>
-            <div class="media">
-              {% if noticia.link_video %}
-                <iframe class="newsVideo" src="{{ noticia.link_video }}"></iframe>
-                {% else %}
-                  {% if noticia.link_foto %}
-                    <img class="newsImg" src="{{ noticia.link_foto }}">
-                  {% endif %}
-              {% endif %}
-            </div>
-            <div class="texto">
-              <p>{{ noticia.texto }}</p>
-            </div>
-          {% endfor %}
+          {% if object_list %}
+            {% for noticia in object_list %}
+              <div class="dateDivider">{{ noticia.data_publicacao | date:"d/m/Y" }}</div>
+              <div class="headline upper">{{ noticia.titulo }}</div>
+              <div class="timestamp">{{ noticia.data_publicacao | date:"d/m/Y H:i:s" }}</div>
+              <div class="media">
+                {% if noticia.link_video %}
+                  <iframe class="newsVideo" src="{{ noticia.link_video }}"></iframe>
+                  {% else %}
+                    {% if noticia.link_foto %}
+                      <img class="newsImg" src="{{ noticia.link_foto }}">
+                    {% endif %}
+                {% endif %}
+              </div>
+              <div class="texto">
+                <p>{{ noticia.texto }}</p>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h3>Nenhuma notícia postada no dia selecionado.</h3>
+          {% endif %}
         </div>
         <div style="height: 100px;"></div>
       </div>
@@ -53,8 +57,10 @@
         });
       });
       function requestNews () {
+        //let url = "http://" + window.location.hostname + "/noticia_archive_day/" + document.getElementById("calendario").value;
         let url = 'http://127.0.0.1:8000/noticia_archive_day/' + document.getElementById("calendario").value;
         window.location.href = url;
       };
     </script>
+  </div>
 {% endblock %}

@@ -10,37 +10,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="theme-color" content="#536878">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
   </head>
   <body>
     <div class="app">
       <header>
         <sidenav id="mySidenav" class="sidenav">
-          <a href="" class="closebtn" onClick={closeNav()}><i class='material-icons'>cancel</i></a>
+          <span class="closebtn" style="font-size:30px;cursor:pointer" onClick={closeNav()}><i class='material-icons'>cancel</i></span>
             <p>Plataformas do<br />Campus Online<br />
-              <a href="http://campus.fac.unb.br/" onClick={this.closeNav}>Site</a>
-              <a href="https://twitter.com/campusitounb" className="twitter" onClick={this.closeNav}>Twitter</a>
-              <a href="https://www.facebook.com/onlinecampus/" className="facebook" onClick={this.closeNav}>Facebook</a>
-              <a href="https://www.instagram.com/campusonline/" className="instagram" onClick={this.closeNav}>Instagram</a>
-              <a href="https://www.youtube.com/channel/UC6a5zNtTLs-yGnHn9nkUIyw" onClick={this.closeNav}>Youtube</a>
+              <a href="http://campus.fac.unb.br/" target="_blank" onClick={closeNav()}>Site</a>
+              <a href="https://twitter.com/campusitounb" class="twitter" target="_blank" onClick={closeNav()}>Twitter</a>
+              <a href="https://www.facebook.com/onlinecampus/" class="facebook" onClick={closeNav()} target="_blank">Facebook</a>
+              <a href="https://www.instagram.com/campusonline/" class="instagram" onClick={closeNav()} target="_blank">Instagram</a>
+              <a href="https://www.youtube.com/channel/UChegNOjzApuGBTQyPo3I27Q" onClick={closeNav()} target="_blank">Youtube</a>
             </p>
             <p>Links da FAC<br />
-              <a href="http://fac.unb.br/" onClick={this.closeNav}>Site</a>
-              <a href="https://twitter.com/fac_unb" onClick={this.closeNav}>Twitter</a>
-              <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={this.closeNav}>Facebook</a>
-              <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={this.closeNav}>Youtube</a>
-              <a href="https://issuu.com/campusunb" onClick={this.closeNav}>Issu</a>
+              <a href="http://fac.unb.br/" onClick={closeNav()} target="_blank">Site</a>
+              <a href="https://twitter.com/fac_unb" onClick={closeNav()} target="_blank">Twitter</a>
+              <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={closeNav()} target="_blank">Facebook</a>
+              <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={closeNav()} target="_blank">Youtube</a>
+              <a href="https://issuu.com/campusunb" onClick={closeNav()} target="_blank">Issu</a>
             </p>
             {% if user.is_authenticated %}
-              <p><a href="{% url 'dashboard' %}">Painel de Controle</p>
+              <p><a href="{% url 'dashboard' %}">Painel de Controle</a></p>
               <p><a href="{% url 'logout' %}">Sair</a></p>
             {% else %}
               <p> <a href="{% url 'login' %}">Entrar</a></p>
             {% endif %}
         </sidenav>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span id="opensidenav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         <script>
-          function openNav() {document.getElementById("mySidenav").style.display = "block";}
-          function closeNav() {document.getElementById("mySidenav").style.display = "none";}
+          function openNav() {
+              document.getElementById("mySidenav").style.display = "block";
+              document.getElementById("mySidenav").style.transform = "translateX(0px)";
+              document.getElementById("mySidenav").style.boxShadow = "10px 0px 50px #000";
+              document.getElementById("opensidenav").style.visibility = "hidden";
+          }
+          function closeNav() {
+              document.getElementById("mySidenav").style.display = "none";
+              document.getElementById("mySidenav").style.transform = "translateX(-250px)";
+              document.getElementById("mySidenav").style.boxShadow = "0px 0px 0px #000";
+              document.getElementById("opensidenav").style.visibility = "visible";
+          }
         </script>
       </header>
       <div class="app-header">

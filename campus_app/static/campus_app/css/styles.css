@@ -3,7 +3,7 @@
     padding-bottom: 0.3em;
     margin: 0;
     border-bottom: 2px solid #eee;
-    display: inline-block;
+    display: block;
 }
 
 .app {
@@ -42,7 +42,7 @@ sidenav {
     background-color: #6c0318;
     overflow-x: hidden;
     padding-top: 60px;
-    transition: 0.5s;
+    transition: 1.5s;
 }
 header {
     backface-visibility: hidden;
@@ -72,7 +72,7 @@ sidenav a {
     font-size: 25px;
     color: #de8d2e;
     display: block;
-    transition: 0.3s;
+    transition: 0.5s;
 	font-weight: lighter;
 	text-align: left;
 	text-indent: 1em;

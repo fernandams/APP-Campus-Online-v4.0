@@ -266,7 +266,7 @@ p {
 .media {
 	height: fit-content;
 	/* max-height: 125px; */
-	background-color: #e8e8e8;
+	background-color: #fff;
 	margin-bottom: 5px;
 	display: flex;
 	justify-content: center;
@@ -336,17 +336,17 @@ p {
 .newsList .dateDivider {
 	text-align: center;
     margin: 25px -25px 25px -25px;
-	padding: 10px 0px;
+	padding: 10px 0;
 	background-color: #942832;
 	color: white;
 	font-weight: 600;
 	font-size: 1.2em;
-	box-shadow: inset 0px 10px 20px -10px #000;
+	box-shadow: inset 0 10px 20px -10px #000;
 	z-index: 1;
 }
 
 .newsList span {
-	margin: 70px 35px 0px 35px;
+	margin: 70px 35px 0 35px;
 	display: inline-block;
 	text-align: center;
 	font-weight: 700;
@@ -360,14 +360,15 @@ p {
 /*################################### CSS MEDIA ###################################*/
 
 .newsImg {
-	width: 100%;
+	width: auto;
 	height: 180px;
+	background-color: #FFFFFF;
 }
 
 .newsVideo {
 	width: 100%;
 	height: 180px;
-	border: 0px none;
+	border: 0 none;
 }
 
 .newsAudio {

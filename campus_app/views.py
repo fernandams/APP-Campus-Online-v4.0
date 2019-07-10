@@ -4,6 +4,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.dates import DayArchiveView
+from django.core import serializers
+from django.http import HttpResponse
 import datetime
 
 # Create your views here.

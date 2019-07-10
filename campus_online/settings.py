@@ -15,7 +15,23 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'campus_app/static/campus_app/js', 'serviceworker.js')
+PWA_APP_NAME = 'Campus Online UnB'
+PWA_APP_DESCRIPTION = "Plataforma de veiculação de notícias e agregadora das demais mídias" \
+                      "do Campus Online"
+PWA_APP_THEME_COLOR = '#b5202e'
+PWA_APP_BACKGROUND_COLOR = '#6c0318'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/',
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/?utm_source=homescreen'
+PWA_APP_LANG = 'pt-BR'
+PWA_APP_ICONS = [
+{
+'src': '/static/campus_app/imagens/icone.png',
+'sizes': '160x160'
+}
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -41,7 +57,7 @@ INSTALLED_APPS = [
     'global_permissions',
     'campus_app',
     'accounts',
-
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +151,7 @@ LOGOUT_URL = 'logout'
 
 # E-mails
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>' # utilizado para enviar os e-mails de recuperação de senha para o usuário
+DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'  # utilizado para enviar os e-mails de recuperação de senha para o usuário
 
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.gmail.com'

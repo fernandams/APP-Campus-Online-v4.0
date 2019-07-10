@@ -4,6 +4,7 @@
     <div class="news-add">
       <h2>Notícias postadas</h2>
       <a class="btn" href="{% url 'noticia_create_form' %}"><b>Nova Publicação</b></a>
+      <a class="btn" href="{% url 'home' %}"><b>Página Inicial</b></a>
         <ul>
           {% for noticia in noticias %}
             <li><a class="btn" href="{% url 'noticia_update_form' noticia.id %}"><b>EDITAR</b></a>

@@ -27,6 +27,9 @@
             <div class="texto">
               <p>{{ noticia.texto }}</p>
             </div>
+            {% if noticia.link_externo %}
+              <a class="link" href="{{ noticia.link_externo }}" target="_blank"><b>Leia mais</b></a>
+            {% endif %}
           {% endfor %}
         </div>
         <div style="height: 100px;"></div>

@@ -1,33 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="pure-g-r content-ribbon">
-    <div class="pure-u-1">
+      <div class="app">
         {% if not user.is_authenticated %}
         <h2>Informe seus dados de login</h2>
-        <form class="pure-form pure-form-stacked" method="POST">
+        <form method="POST">
             {% csrf_token %}
-            <fieldset>
               {{ form.non_field_errors }}
 
                {% for field in form %}
-                <div class="pure-control-group">
+                <div>
                     {{ field.label_tag }}
                     {{ field }}
                     {{ field.errors }}
                 </div>
-
+                 <br>
                 {% endfor %}
                 <div class="pure-controls">
-                    <button type="submit" class="pure-button pure-button-primary">Entrar</button>
+                    <button type="submit" class="btn">Entrar</button>
                 </div>
-            </fieldset>
             <div><p>Esqueceu a senha? <a href="{% url 'password_reset' %}">Nova senha</a> </p></div>
         </form>
         {% else %}
         <h2>Você já está logado!</h2>
         {% endif %}
+      <div style="height: 100px;"></div>
     </div>
-</div>
 {% endblock %}
 

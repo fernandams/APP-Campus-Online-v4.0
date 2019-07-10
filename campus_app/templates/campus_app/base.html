@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="theme-color" content="#536878">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <link rel="shortcut icon" href="{% static 'campus_app/imagens/favicon.ico' %}" type="image/x-icon" />
   </head>
   <body>
     <div class="app">
@@ -62,11 +63,6 @@
       <div class="app-content">
         {% block content %}{% endblock %}
       </div>
-      <div id="offlinedata">
-				<!-- the news will get displayed here from indexedDB in offline mode -->
-			</div>
-      <script type="text/javascript" src="{% static 'campus_app/js/idb.js' %}"></script>
-      <script type="text/javascript" src="{% static 'campus_app/js/idbop.js' %}"></script>
       <footer class="footer">
         <h4>2019 FAC/CIC</h4>
       </footer>

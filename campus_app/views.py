@@ -11,15 +11,6 @@ import datetime
 # Create your views here.
 
 
-class BaseLayout(TemplateView):
-    template_name = 'campus_app/base.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        return context
-
-
 class HomeView(TemplateView):
     template_name = "campus_app/home.html"
 
@@ -80,9 +71,3 @@ class NoticiaDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     permission_required = 'campus_app.delete_noticia'
     model = Noticia
     success_url = reverse_lazy('noticia_list')
-
-
-def getdata(request):
-    results = Noticia.objects.all()
-    json_data = serializers.serialize('json', results)
-    return HttpResponse(json_data)

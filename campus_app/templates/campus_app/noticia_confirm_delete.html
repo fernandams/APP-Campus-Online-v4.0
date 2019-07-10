@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="news-add">
+    <div class="app">
         <p> <a class="btn" href="{% url 'noticia_list' %}">Cancelar</a> </p>
         <form method="post">
           {% csrf_token %}

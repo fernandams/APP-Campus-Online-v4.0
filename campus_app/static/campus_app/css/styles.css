@@ -296,6 +296,12 @@ p {
 	min-width: fit-content;
 }
 
+.author {
+	color: #555555;
+	font-size: 15px;
+	min-width: fit-content;
+}
+
 .resumo {
 	text-align: justify;
 	text-align-last: left;

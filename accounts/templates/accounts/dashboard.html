@@ -1,36 +1,22 @@
 {% extends "accounts/base_dashboard.html" %}
 
 {% block content %}
-<div class="pure-g-r content-ribbon">
-    <div class="pure-u-1">
-        <ul class="breadcrumb">
-            {% block breadcrumb %}
-            <li><a href="{% url 'dashboard' %}">Meu Painel</a></li>
-            {% endblock %}
-        </ul>
-    </div>
-    <div class="pure-u-1-3">
-        <div class="pure-menu pure-menu-open">
-            <p>Olá, {{ user.first_name }} {{ user.last_name }} </p>
-            <ul> 
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'noticia_list' %}">Notícias</a></li>
-                {% if perms.auth.view_user %}
-                <li><a href="{% url 'users' %}">Usuários</a></li>
-                {% endif %}
-                <li><a href="">Editar Perfil</a></li>
-                <li><a href="{% url 'edit_password' %}">Editar Senha</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="pure-u-2-3">
-        <div class="inner">
-            {% block dashboard_content %}
-            <p><strong>Usuário</strong>: {{ user }}</p>
-            <p><strong>E-mail</strong>: {{ user.email }}</p>
-            {% endblock %}
-        </div>
-        <div style="height: 100px;"></div>
-    </div>
-</div>
+  <div class="news-add">
+    <h2>Painel de Controle</h2>
+    <a class="btn" href="{% url 'home' %}">Home</a>
+    <a class="btn" href="{% url 'dashboard' %}">Meu Painel</a>
+    <a class="btn" href="{% url 'noticia_list' %}">Notícias</a>
+    {% if perms.auth.view_user %}
+      <a class="btn" href="{% url 'users' %}">Usuários</a>
+    {% endif %}
+    <a class="btn" href="{% url 'edit_password' %}">Editar Senha</a>
+  </div>
+  <div style="height: 25px;"></div>
+  <div class="news-add">
+    {% block dashboard_content %}
+      <p><strong>Usuário</strong>: {{ user }}</p>
+      <p><strong>E-mail</strong>: {{ user.email }}</p>
+    {% endblock %}
+  </div>
+  <div style="height: 100px;"></div>
 {% endblock %}

@@ -30,7 +30,7 @@
             {% endif %}
             {% if not user.is_superuser %}
               <td> {{ user.groups}} </td>
-              <td> <a href="{% url 'update_user' user.id %}">Editar</a> </td>
+              <td> <a class="btn-link" href="{% url 'update_user' user.id %}">EDITAR</a> </td>
             {% else %}
               <td>Administrador</td>
             {% endif %}

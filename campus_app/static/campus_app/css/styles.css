@@ -177,6 +177,9 @@ body .primary-button {
 
 /*################################### CSS NEWS ADD ###################################*/
 
+.news-add{
+	text-align: center;
+}
 .key-login, .news-add {
 	margin: 10px;
 }
@@ -190,12 +193,13 @@ body .primary-button {
 
 
 .news-add h3, .key-login h3 {
+	text-align: center;
 	font-size: 20px;
 	font-weight: bold;
 	color: #b5202e;
 	margin-bottom: 5px;
 	text-align: justify;
-	text-align-last: left;
+	text-align-last: center;
 }
 .upper{
 	text-transform: uppercase;
@@ -230,6 +234,12 @@ button:hover {
 	background-color: #f9c19a;
 }
 
+.btn-link {
+	color: #6c0318;	
+}
+.btn-link:hover {
+	color: #b5202e;
+}
 #Adicionar:disabled {
 	background-color: white;
 	cursor: not-allowed;

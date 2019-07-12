@@ -29,7 +29,9 @@
               <td>Não</td>
             {% endif %}
             {% if not user.is_superuser %}
-              <td> {{ user.groups}} </td>
+              {% for p in perfil %}
+              <td> {{p.name}} </td>
+              {% endfor %}
               <td> <a class="btn-link" href="{% url 'update_user' user.id %}">EDITAR</a> </td>
             {% else %}
               <td>Administrador</td>

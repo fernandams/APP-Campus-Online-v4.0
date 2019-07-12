@@ -3,8 +3,14 @@
 {% block content %}
     <div class="news-add">
       <h2>Notícias postadas</h2>
-      <a class="btn" href="{% url 'home' %}"><b>Página Inicial</b></a>
       <a class="btn" href="{% url 'noticia_create_form' %}"><b>Nova Publicação</b></a>
+      <a class="btn" href="{% url 'home' %}">Home</a>
+      <a class="btn" href="{% url 'dashboard' %}">Meu Painel</a>
+      <a class="btn" href="{% url 'noticia_list' %}">Notícias</a>
+      {% if perms.auth.view_user %}
+        <a class="btn" href="{% url 'users' %}">Usuários</a>
+      {% endif %}
+      <a class="btn" href="{% url 'edit_password' %}">Editar Senha</a>
         <ul>
           {% for noticia in noticias %}
             <li><a class="btn" href="{% url 'noticia_update_form' noticia.id %}"><b>EDITAR</b></a>

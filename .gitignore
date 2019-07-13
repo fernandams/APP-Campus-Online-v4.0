@@ -126,8 +126,4 @@ dmypy.json
 .idea/
 
 .vscode/
-campus_app/__pycache__/models.cpython-37.pyc
-campus_app/__pycache__/urls.cpython-37.pyc
-campus_app/__pycache__/views.cpython-37.pyc
-campus_online/__pycache__/settings.cpython-37.pyc
-*.pyc
+.campus_app/__pycache__/

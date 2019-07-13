@@ -31,7 +31,7 @@ class NoticiaDataView(DayArchiveView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['noticias'] = self.queryset
-        context['data'] = datetime.date.today()
+        context['data'] = datetime.date(self.get_year(), self.get_month(), self.get_day())
 
         return context
 

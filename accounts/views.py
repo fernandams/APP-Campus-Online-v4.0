@@ -6,7 +6,7 @@ from django.views.generic.edit import FormView
 from .forms import _UserCreationForm, _UserChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.shortcuts import render, redirect
 from django.core.exceptions import PermissionDenied
 
@@ -15,6 +15,10 @@ from django.core.exceptions import PermissionDenied
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name="accounts/dashboard.html"
     login_url = 'login'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['perfil'] = Group.objects.filter(user = self.request.user)
+        return context
 
 class _PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name='accounts/edit_password.html'
@@ -76,5 +80,6 @@ class UsersView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     permission_required = 'auth.view_user'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['users'] = User.objects.all
+        context['users'] = User.objects.all()
         return context
+

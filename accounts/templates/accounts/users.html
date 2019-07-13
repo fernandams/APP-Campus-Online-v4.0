@@ -29,13 +29,15 @@
               <td>Não</td>
             {% endif %}
             {% if not user.is_superuser %}
-              {% for p in perfil %}
-              <td> {{p.name}} </td>
-              {% endfor %}
-              <td> <a class="btn-link" href="{% url 'update_user' user.id %}">EDITAR</a> </td>
+            {% for p in user.groups.all %}
+                <td> {{p.name}} </td>
+            {% empty %}
+                <td> </td>
+            {% endfor %}
+                <td> <a class="btn-link" href="{% url 'update_user' user.id %}">EDITAR</a> </td>
             {% else %}
-              <td>Administrador</td>
-            {% endif %}
+                <td>Administrador</td>
+           {% endif%}
           </tr>
         {% endfor %}
       </table>

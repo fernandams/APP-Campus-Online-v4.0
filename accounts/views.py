@@ -81,9 +81,5 @@ class UsersView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['users'] = User.objects.all()
-        users = User.objects.all()
-        for u in users:
-            perfis = Group.objects.filter(user = u)
-            context['perfil'] = perfis
         return context
 

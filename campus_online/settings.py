@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'campus_app/static')
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'campus_app/static/campus_app/js', 'serviceworker.js')
 PWA_APP_NAME = 'Campus Online UnB'
 PWA_APP_DESCRIPTION = "Plataforma de veiculação de notícias e agregadora das demais mídias" \

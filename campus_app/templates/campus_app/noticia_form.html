@@ -5,8 +5,8 @@
         <p> <a class="btn" href="{% url 'noticia_list' %}">Cancelar</a> </p>
         <form method="post">
           {% csrf_token %}
+          <h3>Publicado por</h3>
           <p>{{ form.cod_usuario }}</p>
-          <div class="error">{{ form.cod_usuario.errors }}</div>
           <h3>Título</h3>
           <p>{{ form.titulo }}</p>
           <div class="error">{{ form.titulo.errors }}</div>

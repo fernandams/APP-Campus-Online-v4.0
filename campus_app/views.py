@@ -4,11 +4,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.dates import DayArchiveView
-from django.core import serializers
-from django.http import HttpResponse
 import datetime
-
-# Create your views here.
 
 
 class HomeView(TemplateView):
@@ -49,12 +45,11 @@ class NoticiaView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
 class NoticiaCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     permission_required = 'campus_app.add_noticia'
     model = Noticia
-    fields = ['titulo', 'texto', 'prioridade',
+    fields = ['cod_usuario', 'titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']
     success_url = reverse_lazy('noticia_list')
 
     def form_valid(self, form):
-        form.instance.cod_usuario = self.request.user
         return super(NoticiaCreate, self).form_valid(form)
 
 

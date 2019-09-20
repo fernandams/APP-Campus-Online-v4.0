@@ -96,12 +96,12 @@ WSGI_APPLICATION = 'campus_online.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'campus_online_app_v3',
-        'USER': 'root',
-        'PASSWORD': '5rL51OA9kALUnJgkJYpx',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'os.environ.get('DB_NAME', 'campus_online_app'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASS', '5rL51OA9kALUnJgkJYpx'),
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 

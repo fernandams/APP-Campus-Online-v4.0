@@ -127,3 +127,4 @@ dmypy.json
 
 .vscode/
 .campus_app/__pycache__/
+campus_online/settings.py

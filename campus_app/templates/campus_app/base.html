@@ -1,6 +1,7 @@
 <!doctype html>
 {% load staticfiles %}
 {% load pwa %}
+{% load sass_tags %}
 <html lang="pt">
   <head>
     {% progressive_web_app_meta %}
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma de veiculação de notícias do Campus Online" />
     <title>Campus Online APP</title>
-    <link rel="stylesheet" href="{% static 'campus_app/css/styles.css' %}" />
+    <link href="{% sass_src 'campus_app/demo.scss' %}" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="theme-color" content="#536878">

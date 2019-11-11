@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 .app-content {
     text-align: left;
     padding-bottom: 0.3em;
@@ -12,16 +16,28 @@
  --color-2: #b5202e;
  --color-3: #ff9000;
  --color-4: #f9c19a;
+
 }
 .app-header {
-    height: fit-content;
     width: 100%;
     background-color: #6c0318;
-		margin-bottom: 10px;
 
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		padding: 0.25rem 0.75rem;
+		#opensidenav {
+			font-size: 1.5rem;
+			color: white;
+		}
 		.app-logo {
-				width: 20%;
-				padding: 15px 0px;
+				width: 16rem;
+				height: 5rem;
+				object-fit: cover;
+				align-self: center;
+				position: relative;
+				bottom: 0.75rem;
 		}
 }
 .app-title {
@@ -35,15 +51,13 @@
 sidenav {
     display: none;
     height: 100%;
-    width: 250px;
+    width: 70vw;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #6c0318;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 1.5s;
+    transition: 0.5s ease-in-out;
 }
 header {
     backface-visibility: hidden;
@@ -53,18 +67,6 @@ sidenav p {
     font-size: 20px;
     color: #e8e8e8;
     display: block;
-}
-sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 25px;
-}
-sidenav .closebtn:hover {
-	color: #e8e8e8;
-	background-color: #6c0318;
-	box-shadow: 0px 0px 0px;
 }
 sidenav a {
     text-decoration: none;

@@ -41,8 +41,7 @@
   display: flex;
   justify-content: center; }
 
-sidenav {
-  display: none;
+#mySidenav {
   height: 100%;
   width: 70vw;
   position: fixed;
@@ -50,28 +49,31 @@ sidenav {
   top: 0;
   left: 0;
   background-color: #6c0318;
-  transition: 0.5s ease-in-out; }
+  transition: 0.4s ease-in-out;
+  transform: translateX(-75vw);
+  padding: 0.45rem 0.5rem;
+  text-align: left; }
+  #mySidenav .closebtn {
+    color: white; }
+    #mySidenav .closebtn i {
+      font-size: 2rem; }
+  #mySidenav .content {
+    padding: 0.5rem; }
+    #mySidenav .content .user-link {
+      color: #ad6674; }
+      #mySidenav .content .user-link i {
+        vertical-align: bottom;
+        font-size: 1.35rem !important; }
+    #mySidenav .content p {
+      text-decoration: none;
+      font-size: 20px;
+      color: #e8e8e8;
+      display: block; }
+    #mySidenav .content a {
+      text-decoration: none; }
 
 header {
   backface-visibility: hidden; }
-
-sidenav p {
-  text-decoration: none;
-  font-size: 20px;
-  color: #e8e8e8;
-  display: block; }
-
-sidenav a {
-  text-decoration: none;
-  font-size: 25px;
-  color: #de8d2e;
-  display: block;
-  font-weight: lighter;
-  text-align: left;
-  text-indent: 1em; }
-
-sidenav a:hover {
-  color: #f1f1f1; }
 
 .burger {
   font-size: 30px;

@@ -20,9 +20,15 @@
   </head>
   <body>
     <div class="app">
-      <header>
-        <sidenav id="mySidenav" class="sidenav">
-          <span class="closebtn" onClick={closeNav()}><i class='material-icons'>cancel</i></span>
+      <sidenav id="mySidenav" class="sidenav">
+        <span class="closebtn" onClick={closeNav()}><i class='material-icons'>chevron_left</i></span>
+        <div class="content">
+          {% if user.is_authenticated %}
+            <p><a href="{% url 'dashboard' %}" class="user-link">Painel de Controle</a></p>
+            <p><a href="{% url 'logout' %}" class="user-link">Sair</a></p>
+          {% else %}
+            <p> <a href="{% url 'login' %}" class="user-link">Entrar <i class='material-icons'>person</i></a></p>
+          {% endif %}
           <p>Plataformas do Campus Online</p>
           <a href="http://campus.fac.unb.br/" target="_blank" onClick={closeNav()}>Site</a>
           <a href="https://twitter.com/campusitounb" class="twitter" target="_blank" onClick={closeNav()}>Twitter</a>
@@ -35,25 +41,19 @@
           <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={closeNav()} target="_blank">Facebook</a>
           <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={closeNav()} target="_blank">Youtube</a>
           <a href="https://issuu.com/campusunb" onClick={closeNav()} target="_blank">Issu</a>
-          {% if user.is_authenticated %}
-            <p><a href="{% url 'dashboard' %}">Painel de Controle</a></p>
-            <p><a href="{% url 'logout' %}">Sair</a></p>
-          {% else %}
-            <p> <a href="{% url 'login' %}">Entrar</a></p>
-          {% endif %}
-        </sidenav>
+        </div>
+      </sidenav>
+      <header>
         <script>
           function openNav() {
               document.getElementById("mySidenav").style.display = "block";
-              //document.getElementById("mySidenav").style.transform = "translateX(0px)";
-              //document.getElementById("mySidenav").style.boxShadow = "10px 0px 50px #000";
+              document.getElementById("mySidenav").style.transform = "translateX(0px)";
               //document.getElementById("opensidenav").style.visibility = "hidden";
           }
           function closeNav() {
-              document.getElementById("mySidenav").style.display = "none";
-              //document.getElementById("mySidenav").style.transform = "translateX(-250px)";
-              //document.getElementById("mySidenav").style.boxShadow = "0px 0px 0px #000";
-              document.getElementById("opensidenav").style.visibility = "visible";
+              document.getElementById("mySidenav").style.transform = "translateX(-70vw)";
+              document.getElementById("mySidenav").style.display = "block";
+              //document.getElementById("opensidenav").style.visibility = "visible";
           }
         </script>
       </header>

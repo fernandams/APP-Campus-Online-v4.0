@@ -14,18 +14,5 @@
         "name": "Editor",
         "permissions": [16,13,14,25,26,27,28]
       }
-    },
-    {
-      "model": "auth.user",
-      "pk": 1,
-      "fields":{
-        "username": "admin",
-        "first_name": "Admin",
-        "last_name": "",
-        "email": "admin@email.com",
-        "password": "12345678",
-        "is_staff": 1,
-        "is_superuser": 1
-      }
     }
  ]

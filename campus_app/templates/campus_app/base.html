@@ -2,9 +2,11 @@
 {% load staticfiles %}
 {% load pwa %}
 {% load sass_tags %}
+{% load fontawesome_5 %}
 <html lang="pt">
   <head>
     {% progressive_web_app_meta %}
+    {% fontawesome_5_static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plataforma de veiculação de notícias do Campus Online" />
@@ -26,35 +28,63 @@
         <span class="closebtn" onClick={closeNav()}><i class='material-icons'>chevron_left</i></span>
         <div class="content">
           {% if user.is_authenticated %}
-            <p><a href="{% url 'dashboard' %}" class="user-link">Painel de Controle</a></p>
-            <p><a href="{% url 'logout' %}" class="user-link">Sair</a></p>
+            <p class="login-link"><a href="{% url 'dashboard' %}" class="user-link">Painel de Controle</a></p>
+            <p class="login-link"><a href="{% url 'logout' %}" class="user-link">Sair</a></p>
           {% else %}
-            <p> <a href="{% url 'login' %}" class="user-link">Entrar <i class='material-icons'>person</i></a></p>
+            <p class="login-link"><a href="{% url 'login' %}" class="user-link">{% fa5_icon 'sign-in-alt' 'fas' %} Entrar</a></p>
           {% endif %}
           <p>Plataformas do Campus Online</p>
-          <a href="http://campus.fac.unb.br/" target="_blank" onClick={closeNav()}>Site</a>
-          <a href="https://twitter.com/campusitounb" class="twitter" target="_blank" onClick={closeNav()}>Twitter</a>
-          <a href="https://www.facebook.com/onlinecampus/" class="facebook" onClick={closeNav()} target="_blank">Facebook</a>
-          <a href="https://www.instagram.com/campusonline/" class="instagram" onClick={closeNav()} target="_blank">Instagram</a>
-          <a href="https://www.youtube.com/channel/UChegNOjzApuGBTQyPo3I27Q" onClick={closeNav()} target="_blank">Youtube</a>
+          <ul>
+            <li>
+              <a href="http://campus.fac.unb.br/" target="_blank" onClick={closeNav()}>{% fa5_icon 'globe' 'fas' %} Site</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/campusitounb" class="twitter" target="_blank" onClick={closeNav()}>{% fa5_icon 'twitter' 'fab' %} Twitter</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/onlinecampus/" class="facebook" onClick={closeNav()} target="_blank">{% fa5_icon 'facebook-square' 'fab' %} Facebook</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/campusonline/" class="instagram" onClick={closeNav()} target="_blank">{% fa5_icon 'instagram' 'fab' %} Instagram</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UChegNOjzApuGBTQyPo3I27Q" onClick={closeNav()} target="_blank">{% fa5_icon 'youtube' 'fab' %} Youtube</a>
+            </li>
+          </ul>
           <p>Links da FAC</p>
-          <a href="http://fac.unb.br/" onClick={closeNav()} target="_blank">Site</a>
-          <a href="https://twitter.com/fac_unb" onClick={closeNav()} target="_blank">Twitter</a>
-          <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={closeNav()} target="_blank">Facebook</a>
-          <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={closeNav()} target="_blank">Youtube</a>
-          <a href="https://issuu.com/campusunb" onClick={closeNav()} target="_blank">Issu</a>
+          <ul>
+            <li>
+              <a href="http://fac.unb.br/" onClick={closeNav()} target="_blank">{% fa5_icon 'globe' 'fas' %} Site</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/fac_unb" onClick={closeNav()} target="_blank">{% fa5_icon 'twitter' 'fab' %} Twitter</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/faculdadedecomunicacao/" onClick={closeNav()} target="_blank">{% fa5_icon 'facebook-square' 'fab' %} Facebook</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UChJBFMMGoVw2yXeFIllVnZw" onClick={closeNav()} target="_blank">{% fa5_icon 'youtube' 'fab' %} Youtube</a>
+            </li>
+            <li>
+              <a href="https://issuu.com/campusunb" onClick={closeNav()} target="_blank">{% fa5_icon 'link' 'fas' %} Issu</a>
+            </li>
+          </ul>
         </div>
       </sidenav>
       <header>
         <script>
           function openNav() {
-              document.getElementById("mySidenav").style.display = "block";
-              document.getElementById("mySidenav").style.transform = "translateX(0px)";
+              var sidenav = document.getElementById("mySidenav");
+              sidenav.style.display = "block";
+              sidenav.style.transform = "translateX(0px)";
+              sidenav.classList.add("addShadow");
               //document.getElementById("opensidenav").style.visibility = "hidden";
           }
           function closeNav() {
-              document.getElementById("mySidenav").style.transform = "translateX(-70vw)";
-              document.getElementById("mySidenav").style.display = "block";
+              var sidenav = document.getElementById("mySidenav");
+              sidenav.style.transform = "translateX(-70vw)";
+              sidenav.style.display = "block";
+              sidenav.classList.remove("addShadow");
               //document.getElementById("opensidenav").style.visibility = "visible";
           }
         </script>

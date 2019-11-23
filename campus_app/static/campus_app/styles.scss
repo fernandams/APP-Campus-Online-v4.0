@@ -57,6 +57,12 @@
 		justify-content: center;
 
 }
+.addShadow {
+	-webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+}
+
 #mySidenav {
     height: 100%;
     width: 70vw;
@@ -78,24 +84,49 @@
 		}
 
 		.content {
-			padding: 0.5rem;
+			padding: 0 1.75rem;
+
+			.login-link {
+				margin: 1.5rem 0;
+				text-align: left;
+			}
 
 			.user-link {
-				color: #ad6674;
+				color: #eed3c2;
+				font-weight: 400;
+				text-decoration: none;
+				text-align: left;
 
 				i {
 					vertical-align: bottom;
-   				font-size: 1.35rem !important;
+					font-size: 1.35rem !important;
+					margin-right: 0.4rem;
 				}
 			}
 			p {
 				text-decoration: none;
-				font-size: 20px;
-				color: #e8e8e8;
+				font-size: 1.2rem;
+				font-weight: 700;
+				color: var(--color-4);
 				display: block;
+				font-family: "Lato", sans-serif;
+				text-align: center;
 			}
-			a {
-				text-decoration: none;
+			ul {
+				list-style: none;
+				padding: 0 0.25rem;
+				a {
+					font-size: 1.25rem;
+					text-decoration: none;
+					color: #fff1f4;
+					font-family: 'IBM Plex Sans', sans-serif;
+					font-weight: 300;
+					i {
+						max-width: 0.8rem;
+						margin-right: 0.8rem;
+						color: #eed3c2;
+					}
+				}
 			}
 
 		}
@@ -283,9 +314,6 @@ button:hover {
 /* .newsItem:hover {
 	background-color: #eee;
 } */
-p {
-	font-family: 'IBM Plex Sans', sans-serif;
-}
 .upper {
 	text-transform: uppercase;
 }
@@ -375,6 +403,9 @@ p {
 
 	.newsContent {
 		padding: 2rem 1.5rem;
+		p {
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
 	}
 
 	span {

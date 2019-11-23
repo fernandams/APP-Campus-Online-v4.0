@@ -44,6 +44,11 @@
   display: flex;
   justify-content: center; }
 
+.addShadow {
+  -webkit-box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.4); }
+
 #mySidenav {
   height: 100%;
   width: 70vw;
@@ -61,19 +66,40 @@
     #mySidenav .closebtn i {
       font-size: 2rem; }
   #mySidenav .content {
-    padding: 0.5rem; }
+    padding: 0 1.75rem; }
+    #mySidenav .content .login-link {
+      margin: 1.5rem 0;
+      text-align: left; }
     #mySidenav .content .user-link {
-      color: #ad6674; }
+      color: #eed3c2;
+      font-weight: 400;
+      text-decoration: none;
+      text-align: left; }
       #mySidenav .content .user-link i {
         vertical-align: bottom;
-        font-size: 1.35rem !important; }
+        font-size: 1.35rem !important;
+        margin-right: 0.4rem; }
     #mySidenav .content p {
       text-decoration: none;
-      font-size: 20px;
-      color: #e8e8e8;
-      display: block; }
-    #mySidenav .content a {
-      text-decoration: none; }
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-4);
+      display: block;
+      font-family: "Lato", sans-serif;
+      text-align: center; }
+    #mySidenav .content ul {
+      list-style: none;
+      padding: 0 0.25rem; }
+      #mySidenav .content ul a {
+        font-size: 1.25rem;
+        text-decoration: none;
+        color: #fff1f4;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: 300; }
+        #mySidenav .content ul a i {
+          max-width: 0.8rem;
+          margin-right: 0.8rem;
+          color: #eed3c2; }
 
 header {
   backface-visibility: hidden; }
@@ -242,9 +268,6 @@ button:hover {
 /* .newsItem:hover {
 	background-color: #eee;
 } */
-p {
-  font-family: 'IBM Plex Sans', sans-serif; }
-
 .upper {
   text-transform: uppercase; }
 
@@ -322,6 +345,8 @@ p {
     z-index: 1; }
   .newsList .newsContent {
     padding: 2rem 1.5rem; }
+    .newsList .newsContent p {
+      font-family: 'IBM Plex Sans', sans-serif; }
   .newsList span {
     margin: 70px 35px 0 35px;
     display: block;

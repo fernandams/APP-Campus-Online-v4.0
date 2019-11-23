@@ -316,19 +316,17 @@ button:hover {
 
 .link {
   display: inline-block;
-  border: 3px solid #de8d2e;
-  border-radius: 10px;
-  margin-top: 15px;
-  padding: 7px;
-  font-weight: bold;
-  color: #6c0318;
+  background-color: #942832;
+  box-shadow: inset 0 2px 15px -10px #5c0314;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
   text-decoration: none;
-  transition-duration: 0.3s;
-  cursor: pointer;
-  font-size: 80%; }
-
-.link:hover {
-  background-color: #de8d2e; }
+  margin: 0.2rem 0; }
 
 /*################################### CSS NEWS LIST ###################################*/
 .newsList {

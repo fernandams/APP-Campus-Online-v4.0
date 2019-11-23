@@ -28,7 +28,7 @@
                 <iframe class="newsVideo" src="{{ noticia.link_video }}"></iframe>
                 {% else %}
                   {% if noticia.link_foto %}
-                    <img class="newsImg" src="{{ noticia.link_foto }}">
+                    <img class="newsImg" src="{{ noticia.link_foto }}" alt="Imagem">
                   {% endif %}
               {% endif %}
             </div>
@@ -43,8 +43,6 @@
         <div style="height: 100px;"></div>
       </div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <script>
       $(function () {
         $( "#calendario" ).datepicker({
@@ -68,4 +66,5 @@
         window.location.href = url;
       };
     </script>
+  </div>
 {% endblock %}

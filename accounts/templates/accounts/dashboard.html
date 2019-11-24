@@ -24,9 +24,14 @@
       <p>{{ user.email }}</p>
       <p class="label">Perfil:</p>
       <p>
-      {% for p in perfil %}
-        {{p.name}}
-      {% endfor %} </p>
+      {% if not user.is_superuser %}
+        {% for p in perfil %}
+         {{p.name}} 
+        {% endfor %}
+        </p>
+        {% else %}
+          Administrador
+      {% endif%} </p>
     </div>
   {% endblock %}
   <div class="endPage"></div>

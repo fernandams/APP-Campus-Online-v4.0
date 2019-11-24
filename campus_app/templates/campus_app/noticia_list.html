@@ -12,8 +12,8 @@
     <a class="link" href="{% url 'edit_password' %}">Editar Senha</a>
   </div>
   <div class="news-list">
-    <hr>
     <a class="link" href="{% url 'noticia_create_form' %}"><b>Nova Publicação</b></a>
+    <hr>
     <ul>
       {% for noticia in noticias %}
         <li class="news-management">

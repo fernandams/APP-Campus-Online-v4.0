@@ -23,7 +23,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 class _PasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     template_name='accounts/edit_password.html'
     form_class = PasswordChangeForm
-    success_url = 'senha-alterada-com-sucesso' 
+    success_url = 'senha-alterada-com-sucesso'
 
 class _PasswordChangeDoneView(LoginRequiredMixin, PasswordChangeDoneView):
     template_name='accounts/password_change_done.html'
@@ -67,9 +67,9 @@ def UpdateUser(request, pk):
     user = User.objects.get(pk=pk)
     if User.objects.filter(pk=pk, is_superuser=True):
        raise PermissionDenied
-    form = _UserChangeForm(request.POST or None, instance=user) 
-    if form.is_valid(): 
-        form.save() 
+    form = _UserChangeForm(request.POST or None, instance=user)
+    if form.is_valid():
+        form.save()
         return redirect('users')
     data['form'] = form
     data['user'] = user

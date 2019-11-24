@@ -496,4 +496,22 @@ button, .btn {
     .news-list ul hr {
       margin: 1rem 0; }
 
+.users-list {
+  padding: 0 1rem;
+  margin: 0;
+  list-style-type: none;
+  font-family: "IBM Plex Sans", sans-serif; }
+  .users-list .link-outline {
+    margin-right: 0.2rem; }
+  .users-list .name {
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    color: #6c0318; }
+  .users-list p {
+    margin: 0.5rem 0; }
+  .users-list hr {
+    margin: 1rem 0; }
+
 /*# sourceMappingURL=styles.css.map */

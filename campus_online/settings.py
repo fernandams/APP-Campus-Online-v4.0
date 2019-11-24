@@ -15,8 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'campus_app/static')
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'campus_app/static/campus_app/js', 'serviceworker.js')
-PWA_APP_NAME = 'Campus Online UnB'
+PWA_APP_NAME = 'Campus Online'
 PWA_APP_DESCRIPTION = "Plataforma de veiculação de notícias e agregadora das demais mídias" \
                       "do Campus Online"
 PWA_APP_THEME_COLOR = '#b5202e'
@@ -95,12 +96,12 @@ WSGI_APPLICATION = 'campus_online.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'campus_online_app',
-        'USER': 'root',
-        'PASSWORD': '5rL51OA9kALUnJgkJYpx',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME', 'campus_online_app'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASS', '5rL51OA9kALUnJgkJYpx'),
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 
@@ -148,14 +149,13 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_URL = 'logout'
 
-# E-mails
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'  # utilizado para enviar os e-mails de recuperação de senha para o usuário
-
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'senha'
-# EMAIL_PORT = 587
-
+# # E-mails
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = 'APP Campus Online <campusaplicativo@gmail.com>'  
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'campusaplicativo@gmail.com'
+EMAIL_HOST_PASSWORD = 'campusitoapp'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 # CONTACT_EMAIL = ''
+

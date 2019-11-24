@@ -514,4 +514,13 @@ button, .btn {
   .users-list hr {
     margin: 1rem 0; }
 
+.change-password .login-page {
+  justify-content: flex-start;
+  height: auto; }
+  .change-password .login-page h3 {
+    color: #6c0318;
+    margin: 0.5rem 0 0.8rem 0; }
+  .change-password .login-page .link {
+    margin-top: 0.8rem; }
+
 /*# sourceMappingURL=styles.css.map */

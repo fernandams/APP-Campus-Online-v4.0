@@ -1,46 +1,32 @@
 {% extends "accounts/dashboard.html" %}
 
 {% block dashboard_content %}
-  <div class="news-add">
-    <h2>Usuários</h2>
-    <p>
-      <a class="btn" href="{% url 'new_user' %}">Novo usuário</a>
-    </p>
-    <div class="container">
-      <table class="table-responsive">
-        <tr>
-          <th>Usuário</th>
-          <th>Primeiro Nome</th>
-          <th>Último Nome</th>
-          <th>Email</th>
-          <th>Ativo</th>
-          <th>Perfil</th>
-          <th> </th>
-        </tr>
-        {% for user in users %}
-          <tr>
-            <td> {{ user }} </td>
-            <td> {{ user.first_name }} </td>
-            <td> {{ user.last_name }} </td>
-            <td> {{ user.email }} </td>
-            {% if user.is_active%}
-              <td>Sim</td>
-            {% else %}
-              <td>Não</td>
-            {% endif %}
-            {% if not user.is_superuser %}
-            {% for p in user.groups.all %}
-                <td> {{p.name}} </td>
-            {% empty %}
-                <td> </td>
-            {% endfor %}
-                <td> <a class="btn-link" href="{% url 'update_user' user.id %}">EDITAR</a> </td>
-            {% else %}
-                <td>Administrador</td>
-           {% endif%}
-          </tr>
+  <ul class="users-list">
+    <a class="link" href="{% url 'new_user' %}"><b>Novo usuário</b></a>
+    <hr>
+  {% for user in users|dictsort:"first_name" %}
+    <li>
+      {% if not user.is_superuser %}
+        <span><a class="link-outline" href="{% url 'update_user' user.id %}"><b>Editar</b></a></span>
+      {% endif%}
+      <span class="name"> {{ user.first_name }} {{ user.last_name }} </span>
+      <p><b>Usuário:</b> {{ user }}</p>
+      <p><b>Email:</b> {{ user.email }} </p>
+      {% if user.is_active%}
+        <p><b>Status:</b> Ativo</p>
+      {% else %}
+        <p><b>Status:</b> Desativado</p>
+      {% endif %}
+      {% if not user.is_superuser %}
+        {% for p in user.groups.all %}
+            <span><b>Tipo de usuário:</b> {{p.name}} </span>
+        {% empty %}
         {% endfor %}
-      </table>
-    </div>
-  </div>
+        {% else %}
+        <span><b>Tipo de usuário:</b> Administrador</span>
+      {% endif%}
+    </li>
+    <hr>
+  {% endfor %}
+  </ul>
 {% endblock %}

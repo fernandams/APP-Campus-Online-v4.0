@@ -6,8 +6,7 @@
     text-align: left;
     padding-bottom: 0.3em;
     margin: 0;
-    border-bottom: 2px solid #eee;
-    display: block;
+		display: block;
 }
 
 .app {
@@ -16,6 +15,7 @@
  --color-2: #b5202e;
  --color-3: #ff9000;
  --color-4: #f9c19a;
+
 
 }
 .app-header {
@@ -33,6 +33,11 @@
 			color: white;
 		}
 
+		a {
+			width: 100%;
+			-webkit-tap-highlight-color: transparent;
+		}
+
 		.app-logo {
 				width: 16rem;
 				height: 5rem;
@@ -48,8 +53,15 @@
 }
 #calendar-region {
     display: flex;
-    justify-content: center;
+		justify-content: center;
+
 }
+.addShadow {
+	-webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.4);
+}
+
 #mySidenav {
     height: 100%;
     width: 70vw;
@@ -71,27 +83,57 @@
 		}
 
 		.content {
-			padding: 0.5rem;
+			padding: 0 1.75rem;
+
+			.login-link {
+				margin: 1.5rem 0;
+				text-align: left;
+			}
 
 			.user-link {
-				color: #ad6674;
+				color: #eed3c2;
+				font-weight: 400;
+				text-decoration: none;
+				text-align: left;
 
 				i {
 					vertical-align: bottom;
-   				font-size: 1.35rem !important;
+					font-size: 1.35rem !important;
+					margin-right: 0.4rem;
 				}
 			}
 			p {
 				text-decoration: none;
-				font-size: 20px;
-				color: #e8e8e8;
+				font-size: 1.2rem;
+				font-weight: 700;
+				color: var(--color-4);
 				display: block;
+				font-family: "Lato", sans-serif;
+				text-align: center;
 			}
-			a {
-				text-decoration: none;
+			ul {
+				list-style: none;
+				padding: 0 0.25rem;
+				a {
+					font-size: 1.25rem;
+					text-decoration: none;
+					color: #fff1f4;
+					font-family: 'IBM Plex Sans', sans-serif;
+					font-weight: 300;
+					i {
+						max-width: 0.8rem;
+						margin-right: 0.8rem;
+						color: #eed3c2;
+					}
+				}
 			}
-			a:hover {
 
+			#panel-link {
+				margin-bottom: 0.2rem;
+			}
+
+			#logout-link {
+				margin-top: 0.2rem;
 			}
 
 		}
@@ -104,20 +146,19 @@ header {
     cursor: pointer;
 }
 .calendar-button {
-    padding: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-	background-color: white;
-    border: 3px solid #942832;
-    border-radius: 10px;
-    color: #942832;
-    transition-duration: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
+	background-color: #942832;
+	box-shadow: inset 0 2px 15px -10px #5c0314;
+	padding: 0.35rem 0.75rem;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
 }
-.calendar-button:hover {
-    background-color: #942832;
-    color: white;
+
+.calendar-button:focus {
+	outline: none;
+	background-color: #791d26;
 }
 
 body {
@@ -192,15 +233,15 @@ body .primary-button {
     width: 100%;
     background-color: #6c0318;
     color: #fff;
-    text-align: left;
-    padding-left: 20px;
+		text-align: left;
+		h4 {
+			padding: 0 1.5rem;
+			font-weight: 400;
+			font-family: "Lato", sans-serif;
+		}
 }
 
 /*################################### CSS NEWS ADD ###################################*/
-
-.key-login, .news-add {
-	margin: 10px;
-}
 
 .preview {
 	/* border: 2px solid #000; */
@@ -238,12 +279,8 @@ button, .btn {
 	background-color: white;
 	text-decoration: none;
 	transition-duration: 0.3s;
-    cursor: pointer;
+  cursor: pointer;
 	font-size: 80%;
-}
-
-button:hover {
-	background-color: #f9c19a;
 }
 
 .btn:hover {
@@ -269,37 +306,38 @@ button:hover {
 
 /*################################### CSS NEWS ITEM ###################################*/
 
-.newsItem {
-	background-color: white;
-	padding: 25px;
-	border-color: #282828;
-	border-width: 0px 0px 1px 0px;
-	border-style: solid;
+.endPage {
+	height: 3rem;
+
+	.errorlist {
+		list-style: none;
+		align-self: center;
+		padding: 0 2rem;
+		color: var(--color-1);
+	}
 }
 
 /* .newsItem:hover {
 	background-color: #eee;
 } */
-p {
-	font-family: 'IBM Plex Sans', sans-serif;
-}
 .upper {
 	text-transform: uppercase;
 }
 .media {
 	height: fit-content;
-	/* max-height: 125px; */
 	background-color: #fff;
-	margin-bottom: 5px;
+	margin: 0.5rem 0;
 	display: flex;
 	justify-content: center;
 }
 
 .headline {
 	font-family: 'Lato', sans-serif;
-	font-size: 20px;
+	font-size: 1.35rem;
 	font-weight: bold;
 	color: #942832;
+	margin-bottom: 0.25rem;
+	text-transform: uppercase;
 }
 
 .adtInfo {
@@ -310,22 +348,15 @@ p {
 	align-items: center;
 }
 
-.autor {
-	color: #888;
-	font-size: 14px;
-	text-align: left;
-}
-
 .timestamp {
 	color: #5a5a5a;
-	font-size: 12px;
-	min-width: fit-content;
+	font-size: 0.8rem;
+	word-spacing: 0.25rem;
 }
 
 .author {
 	color: #555555;
-	font-size: 15px;
-	min-width: fit-content;
+	font-size: 1rem;
 }
 
 .resumo {
@@ -344,35 +375,54 @@ p {
 
 .link {
 	display: inline-block;
-	border: 3px solid #de8d2e;
-	border-radius: 10px;
-	margin-top: 15px;
-	padding: 7px;
-	font-weight: bold;
-	color: #6c0318;
+	background-color: #942832;
+	box-shadow: inset 0 2px 15px -10px #5c0314;
+	padding: 0.5rem 0.75rem;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
 	text-decoration: none;
-	transition-duration: 0.3s;
-    cursor: pointer;
-	font-size: 80%;
+	margin: 0.2rem 0;
 }
 
-.link:hover {
-	background-color: #de8d2e;
+.link-outline {
+	display: inline-block;
+	background-color: transparent;
+	padding: 0.3rem 0.5rem;
+	color: #942832;
+	border: solid 2px #942832;
+	border-radius: 5px;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
+	text-decoration: none;
+	margin: 0.2rem 0;
 }
 
 /*################################### CSS NEWS LIST ###################################*/
 
 .newsList {
+	font-family: 'Lato', sans-serif;
 	.dateDivider {
 		text-align: center;
-			margin: 25px -25px 25px -25px;
 		padding: 10px 0;
+		width: 100%;
 		background-color: #942832;
 		color: white;
-		font-weight: 600;
+		font-weight: 700;
 		font-size: 1.2em;
-		box-shadow: inset 0 10px 20px -10px #000;
+		box-shadow: inset 0 10px 20px -10px #5c0314;
 		z-index: 1;
+	}
+
+	.newsContent {
+		padding: 2rem 1.5rem;
+		p {
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
 	}
 
 	span {
@@ -419,3 +469,254 @@ p {
   margin-top: 20px;
   margin-bottom: 20px !important;
 }
+
+/*################################### CSS LOGIN PAGE ###################################*/
+
+.login-page {
+	height: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 3rem;
+
+	font-family: "IBM Plex Sans", sans-serif;
+
+	br {
+		display: none;
+	}
+
+	h2 {
+		color: #6c0318;
+	}
+
+	form {
+		height: 60%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		label {
+			display: block;
+			text-align: left;
+			margin-bottom: 0.2rem;
+			color: #791d26;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			height: 2rem;
+			margin-bottom: 0.5rem;
+			padding: .375rem .75rem;
+			color: #495057;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 1px solid #ced4da;
+			border-radius: .25rem;
+		}
+
+		input:focus {
+			color: #495057;
+			background-color: #fff;
+			border-color: #b95e67;
+			outline: 0;
+			box-shadow: 0 0 0 0.1rem #b95e6777;
+		}
+
+		.link {
+			margin: 1.2rem 0 0.8rem 0;
+		}
+
+		fieldset {
+			padding: 0;
+			margin: 0;
+			border: none;
+		}
+	}
+
+}
+
+.recovery-page {
+	padding: 2rem 3rem;
+
+	p {
+		margin-top: 0;
+	}
+}
+
+/*################################### CSS DASHBOARD ###################################*/
+
+.section-title {
+	text-align: center;
+	color: #6c0318;
+	font-family: "Lato", sans-serif;
+	margin-bottom: 0.5rem;
+}
+
+.panel-links {
+	padding: 0.5rem;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	.link {
+		margin: 0.2rem;
+	}
+}
+
+.active-user {
+	padding: 0.5rem;
+
+	h3 {
+		color: #6c0318;
+		margin: 0.8rem 0;
+	}
+
+	.label {
+		color: #942832;
+		font-weight: bold;
+		font-size: 1.1rem;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+}
+
+.news-list {
+	padding: 0 1rem;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		font-family: "IBM Plex Sans", sans-serif;
+
+		.news-management {
+			.title {
+				font-weight: bold;
+				font-size: 1.1rem;
+				text-transform: uppercase;
+				margin-left: 0.2rem;
+				color: #6c0318;
+				font-family: "Lato", sans-serif;
+			}
+
+			p {
+				margin: 0.5rem 0;
+			}
+
+		}
+
+		hr {
+			margin: 1rem 0;
+		}
+
+	}
+}
+
+.users-list {
+	padding: 0 1rem;
+	margin: 0;
+	list-style-type: none;
+	font-family: "IBM Plex Sans", sans-serif;
+
+	.link-outline {
+		margin-right: 0.2rem;
+	}
+
+	.name {
+		font-weight: bold;
+		font-family: "Lato", sans-serif;
+		font-size: 1.1rem;
+		text-transform: capitalize;
+		color: #6c0318;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	hr {
+		margin: 1rem 0;
+	}
+}
+
+.change-password {
+
+	.login-page {
+		justify-content: flex-start;
+		height: auto;
+
+		h3 {
+			color: #6c0318;
+			margin: 0.5rem 0 0.8rem 0;
+		}
+
+		.link {
+			margin-top: 0.8rem;
+		}
+	}
+
+}
+
+.news-form {
+	padding: 0.5rem 1.25rem;
+
+	.back-link {
+		text-decoration: none;
+		color: var(--color-1);
+		font-weight: bold;
+	}
+
+	select, input:not([type='checkbox']) {
+		display: block;
+		width: 80%;
+		min-height: 2rem;
+		margin-bottom: 0.5rem;
+		padding: .375rem .75rem;
+		color: #495057;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da;
+		border-radius: .25rem;
+		font-size: 1rem;
+	}
+
+	select[multiple] {
+		height: 3.5rem;
+		font-size: 1rem;
+	}
+
+	input[type='checkbox'] {
+		padding: 0;
+		transform: scale(1.3);
+		margin: 0;
+		align-self: flex-end;
+	}
+
+	textarea {
+		display: block;
+		width: 100%;
+		min-height: 50vh;
+		margin-bottom: 0.5rem;
+		padding: .375rem .75rem;
+		color: #495057;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da;
+		border-radius: .25rem;
+	}
+
+	select:focus, input:focus, textarea:focus {
+		color: #495057;
+		background-color: #fff;
+		border-color: #b95e67;
+		outline: 0;
+		box-shadow: 0 0 0 0.1rem #b95e6777;
+	}
+
+	.link-tip {
+		margin-bottom: 0.2rem;
+	}
+}
+

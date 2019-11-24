@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load fontawesome_5 %}
 
 {% block content %}
-    <div class="news-add">
-        <p> <a class="btn" href="{% url 'noticia_list' %}">Cancelar</a> </p>
+    <div class="news-form">
+        <p> <a class="back-link" href="{% url 'noticia_list' %}">{% fa5_icon 'chevron-left' 'fas' %} Voltar</a> </p>
         <form method="post">
           {% csrf_token %}
           <h3>Publicado por</h3>
@@ -19,14 +20,70 @@
           <h3>Link externo</h3>
           <p>{{ form.link_externo }}</p>
           <div class="error">{{ form.link_externo.errors }}</div>
-          <h3>Link video</h3>
+          <h3 class="link-tip">Link video</h3>
+          <small>Vídeos não poderão ser exibidos na prévia, mas aparecerão normalmente na versão publicada.</small>
           <p>{{ form.link_video }}</p>
           <div class="error">{{ form.link_video.errors }}</div>
-          <h3>Link imagem</h3>
+          <h3 class="link-tip">Link imagem</h3>
+          <small>Caso a imagem não apareça na prévia, verifique se o link está correto.</small>
           <p>{{ form.link_foto }}</p>
           <div class="error">{{ form.link_foto.errors }}</div>
-          <input class="btn" type="submit" value="Salvar">
+          <button class="link" type="submit">Publicar</button>
         </form>
-      <div style="height: 100px;"></div>
+        <h3>Prévia da Notícia:</h3>
+      </div>
+    <div class="preview-news">
+      <div class="newsList">
+        <div class="dateDivider">08/10/2088</div>
+        <div class="newsContent">
+          <div id="preview-titulo" class="headline upper">Título</div>
+          <div class="author"><b>Por Autor</b></div>
+          <div class="adtInfo">
+            <div class="timestamp">08/10/2088 09h28</div>
+          </div>
+          <div class="media">
+              <img class="newsImg" src="" alt="A imagem ou vídeo aparecerá aqui">
+          </div>
+          <div class="texto">
+            <p id="preview-texto">Texto</p>
+          </div>
+            <a class="link" id="preview-link" href="" target="_blank">Leia mais</a>
+        </div>
+      </div>
     </div>
+    <div class="endPage"></div>
+
+    <script>
+      $( document ).ready(function() {
+        var titulo_input = $("#id_titulo")
+        var text_input = $("#id_texto")
+        var link_input = $("#id_link_externo")
+        var foto_input = $("#id_link_foto")
+
+        titulo_input.change(function() {
+          $("#preview-titulo").text(titulo_input.val())
+        });
+
+        text_input.change(function() {
+          $("#preview-texto").text(text_input.val())
+        });
+
+        link_input.change(function() {
+          $("#preview-link").attr("href", link_input.val())
+        });
+
+        foto_input.change(function() {
+          $(".newsImg").attr("src", foto_input.val())
+        });
+
+        var today = new Date()
+        var time = new Date()
+
+        today = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear()
+        $(".dateDivider").text(today)
+        today += " " + time.getHours() + ":" + time.getMinutes()
+        $(".timestamp").text(today)
+
+      });
+    </script>
 {% endblock %}

@@ -482,6 +482,18 @@ button, .btn {
   padding: 0 1rem; }
   .news-list ul {
     list-style-type: none;
-    padding: 0; }
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif; }
+    .news-list ul .news-management .title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-left: 0.2rem;
+      color: #6c0318;
+      font-family: "Lato", sans-serif; }
+    .news-list ul .news-management p {
+      margin: 0.5rem 0; }
+    .news-list ul hr {
+      margin: 1rem 0; }
 
 /*# sourceMappingURL=styles.css.map */

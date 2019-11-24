@@ -2,8 +2,8 @@
 
 {% block dashboard_content %}
   <div>
-    <div>
-      <h2>Informe os dados do usuário</h2>
+    <div class="news-form">
+      <h3>Informe os dados do usuário</h3>
         <form method="post">
           {% csrf_token %}
           {{ form.non_field_errors }}
@@ -16,9 +16,10 @@
             <br>
           {% endfor %}
           <div>
-            <button class="btn" type="submit">Salvar</button>
+            <button class="link" type="submit">Salvar</button>
           </div>
         </form>
     </div>
+    <div class="endPage"></div>
 </div>
 {% endblock %}

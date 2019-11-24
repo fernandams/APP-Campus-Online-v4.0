@@ -90,6 +90,10 @@
               sidenav.classList.remove("addShadow");
               //document.getElementById("opensidenav").style.visibility = "visible";
           }
+          $( document ).ready(function() {
+            var today = new Date()
+            $("#year").text(today.getFullYear())
+          })
         </script>
       </header>
       <div class="app-header">
@@ -100,7 +104,7 @@
         {% block content %}{% endblock %}
       </div>
       <footer class="footer">
-        <h4>2019 FAC/CIC</h4>
+        <h4><span id="year">2019</span> FAC/CIC</h4>
       </footer>
     </div>
   </body>

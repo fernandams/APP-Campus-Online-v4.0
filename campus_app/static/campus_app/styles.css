@@ -566,5 +566,7 @@ button, .btn {
     border-color: #b95e67;
     outline: 0;
     box-shadow: 0 0 0 0.1rem #b95e6777; }
+  .news-form .link-tip {
+    margin-bottom: 0.2rem; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load fontawesome_5 %}
 
 {% block content %}
-    <div class="news-add">
-        <p> <a class="btn" href="{% url 'noticia_list' %}">Cancelar</a> </p>
+    <div class="news-form">
+        <p> <a class="back-link" href="{% url 'noticia_list' %}">{% fa5_icon 'chevron-left' 'fas' %} Voltar</a> </p>
         <form method="post">
           {% csrf_token %}
           <h3>Título</h3>
@@ -23,8 +24,8 @@
           <h3>Link imagem</h3>
           <p>{{ form.link_foto }}</p>
           <div class="error">{{ form.link_foto.errors }}</div>
-          <input class="btn" type="submit" value="Salvar">
-          <a class="btn" href="{% url 'noticia_confirm_delete' noticia.id %}">Remover</a>
+          <button class="link" type="submit">Publicar</button>
+          <a class="link-outline" href="{% url 'noticia_confirm_delete' noticia.id %}">Remover</a>
         </form>
       <div style="height: 100px;"></div>
     </div>

@@ -523,4 +523,39 @@ button, .btn {
   .change-password .login-page .link {
     margin-top: 0.8rem; }
 
+.news-form {
+  padding: 0.5rem 1.25rem; }
+  .news-form .back-link {
+    text-decoration: none;
+    color: var(--color-1);
+    font-weight: bold; }
+  .news-form select, .news-form input {
+    display: block;
+    width: 80%;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    padding: .375rem .75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem; }
+  .news-form textarea {
+    display: block;
+    width: 100%;
+    min-height: 50vh;
+    margin-bottom: 0.5rem;
+    padding: .375rem .75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem; }
+  .news-form select:focus, .news-form input:focus, .news-form textarea:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #b95e67;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem #b95e6777; }
+
 /*# sourceMappingURL=styles.css.map */

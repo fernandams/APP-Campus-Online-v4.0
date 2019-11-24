@@ -1,9 +1,6 @@
-from django.core.exceptions import ImproperlyConfigured
-from django.forms import ModelForm
 from django import forms
 from .models import Noticia
-from django.views.generic.edit import FormView
-import datetime
+
 
 class NoticiaForm(forms.ModelForm):
 

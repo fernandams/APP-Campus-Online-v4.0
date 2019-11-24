@@ -28,8 +28,8 @@
         <span class="closebtn" onClick={closeNav()}><i class='material-icons'>chevron_left</i></span>
         <div class="content">
           {% if user.is_authenticated %}
-            <p class="login-link"><a href="{% url 'dashboard' %}" class="user-link">Painel de Controle</a></p>
-            <p class="login-link"><a href="{% url 'logout' %}" class="user-link">Sair</a></p>
+            <p class="login-link" id="panel-link"><a href="{% url 'dashboard' %}" class="user-link">{% fa5_icon 'grip-horizontal' 'fas' %} Painel de Controle</a></p>
+            <p class="login-link" id="logout-link"><a href="{% url 'logout' %}" class="user-link">{% fa5_icon 'sign-out-alt' 'fas' %} Sair</a></p>
           {% else %}
             <p class="login-link"><a href="{% url 'login' %}" class="user-link">{% fa5_icon 'sign-in-alt' 'fas' %} Entrar</a></p>
           {% endif %}

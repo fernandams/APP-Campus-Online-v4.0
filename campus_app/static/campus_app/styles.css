@@ -5,7 +5,6 @@
   text-align: left;
   padding-bottom: 0.3em;
   margin: 0;
-  border-bottom: 2px solid #eee;
   display: block; }
 
 .app {
@@ -100,6 +99,10 @@
           max-width: 0.8rem;
           margin-right: 0.8rem;
           color: #eed3c2; }
+    #mySidenav .content #panel-link {
+      margin-bottom: 0.2rem; }
+    #mySidenav .content #logout-link {
+      margin-top: 0.2rem; }
 
 header {
   backface-visibility: hidden; }
@@ -200,9 +203,6 @@ body .primary-button {
     font-family: "Lato", sans-serif; }
 
 /*################################### CSS NEWS ADD ###################################*/
-.key-login, .news-add {
-  margin: 10px; }
-
 .preview {
   /* border: 2px solid #000; */
   margin: 15px -10px 0px -10px;
@@ -240,9 +240,6 @@ button, .btn {
   cursor: pointer;
   font-size: 80%; }
 
-button:hover {
-  background-color: #f9c19a; }
-
 .btn:hover {
   background-color: #f9c19a; }
 
@@ -264,6 +261,11 @@ button:hover {
 /*################################### CSS NEWS ITEM ###################################*/
 .endPage {
   height: 3rem; }
+  .endPage .errorlist {
+    list-style: none;
+    align-self: center;
+    padding: 0 2rem;
+    color: var(--color-1); }
 
 /* .newsItem:hover {
 	background-color: #eee;
@@ -328,6 +330,19 @@ button:hover {
   text-decoration: none;
   margin: 0.2rem 0; }
 
+.link-outline {
+  display: inline-block;
+  background-color: transparent;
+  padding: 0.3rem 0.5rem;
+  color: #942832;
+  border: solid 2px #942832;
+  border-radius: 5px;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0.2rem 0; }
+
 /*################################### CSS NEWS LIST ###################################*/
 .newsList {
   font-family: 'Lato', sans-serif; }
@@ -384,5 +399,89 @@ button:hover {
 .table-status {
   margin-top: 20px;
   margin-bottom: 20px !important; }
+
+/*################################### CSS LOGIN PAGE ###################################*/
+.login-page {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  font-family: "IBM Plex Sans", sans-serif; }
+  .login-page br {
+    display: none; }
+  .login-page h2 {
+    color: #6c0318; }
+  .login-page form {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .login-page form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.2rem;
+      color: #791d26; }
+    .login-page form input {
+      display: block;
+      width: 100%;
+      height: 2rem;
+      margin-bottom: 0.5rem;
+      padding: .375rem .75rem;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem; }
+    .login-page form input:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #b95e67;
+      outline: 0;
+      box-shadow: 0 0 0 0.1rem #b95e6777; }
+    .login-page form .link {
+      margin: 1.2rem 0 0.8rem 0; }
+    .login-page form fieldset {
+      padding: 0;
+      margin: 0;
+      border: none; }
+
+.recovery-page {
+  padding: 2rem 3rem; }
+  .recovery-page p {
+    margin-top: 0; }
+
+/*################################### CSS DASHBOARD ###################################*/
+.section-title {
+  text-align: center;
+  color: #6c0318;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 0.5rem; }
+
+.panel-links {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .panel-links .link {
+    margin: 0.2rem; }
+
+.active-user {
+  padding: 0.5rem; }
+  .active-user h3 {
+    color: #6c0318;
+    margin: 0.8rem 0; }
+  .active-user .label {
+    color: #942832;
+    font-weight: bold;
+    font-size: 1.1rem; }
+  .active-user p {
+    margin: 0.5rem 0; }
+
+.news-list {
+  padding: 0 1rem; }
+  .news-list ul {
+    list-style-type: none;
+    padding: 0; }
 
 /*# sourceMappingURL=styles.css.map */

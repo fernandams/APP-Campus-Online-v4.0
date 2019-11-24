@@ -1,26 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="app">
-    <a class="btn" href="{% url 'home' %}">Home</a>
-    <a class="btn" href="{% url 'dashboard' %}">Meu Painel</a>
+  <h2 class="section-title">Notícias</h2>
+  <div class="panel-links">
+    <a class="link" href="{% url 'home' %}">Home</a>
+    <a class="link" href="{% url 'dashboard' %}">Meu Painel</a>
+    <a class="link" href="{% url 'noticia_list' %}">Notícias</a>
     {% if perms.auth.view_user %}
-      <a class="btn" href="{% url 'users' %}">Usuários</a>
+      <a class="link" href="{% url 'users' %}">Usuários</a>
     {% endif %}
-    <a class="btn" href="{% url 'edit_password' %}">Editar Senha</a>
+    <a class="link" href="{% url 'edit_password' %}">Editar Senha</a>
   </div>
-  <div class="news-add">
-    <h2>Notícias postadas</h2>
-    <a class="btn" href="{% url 'noticia_create_form' %}"><b>Nova Publicação</b></a>
-      <ul>
-        {% for noticia in noticias %}
-          <li><a class="btn" href="{% url 'noticia_update_form' noticia.id %}"><b>EDITAR</b></a>
-             {{ noticia.titulo }} <b>| PRIORIDADE: </b>{{ noticia.prioridade }} <b>|
-             Data de publicação: </b>{{ noticia.data_publicacao }}
-          </li>
-          <div style="height: 10px;"></div>
-        {% endfor %}
-      </ul>
+  <div class="news-list">
+    <hr>
+    <a class="link" href="{% url 'noticia_create_form' %}"><b>Nova Publicação</b></a>
+    <ul>
+      {% for noticia in noticias %}
+        <li>
+          <a class="link-outline" href="{% url 'noticia_update_form' noticia.id %}"><b>Editar</b></a>
+            {{ noticia.titulo }} <b>| PRIORIDADE: </b>{{ noticia.prioridade }} <b>|
+            Data de publicação: </b>{{ noticia.data_publicacao }}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
   <div style="height: 100px;"></div>
 {% endblock %}

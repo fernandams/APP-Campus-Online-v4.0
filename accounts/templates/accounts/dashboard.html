@@ -1,25 +1,33 @@
 {% extends "accounts/base_dashboard.html" %}
 
 {% block content %}
-  <div class="news-add">
-    <a class="btn" href="{% url 'home' %}">Home</a>
-    <a class="btn" href="{% url 'dashboard' %}">Meu Painel</a>
-    <a class="btn" href="{% url 'noticia_list' %}">Notícias</a>
+  {% if request.path == "/usuarios/" %}
+    <h2 class="section-title">Usuários</h2>
+  {% else %}
+    <h2 class="section-title">Painel de Controle</h2>
+  {% endif %}
+  <div class="panel-links">
+    <a class="link" href="{% url 'home' %}">Home</a>
+    <a class="link" href="{% url 'dashboard' %}">Meu Painel</a>
+    <a class="link" href="{% url 'noticia_list' %}">Notícias</a>
     {% if perms.auth.view_user %}
-      <a class="btn" href="{% url 'users' %}">Usuários</a>
+      <a class="link" href="{% url 'users' %}">Usuários</a>
     {% endif %}
-    <a class="btn" href="{% url 'edit_password' %}">Editar Senha</a>
+    <a class="link" href="{% url 'edit_password' %}">Editar Senha</a>
   </div>
-  <div style="height: 25px;"></div>
-  <div class="news-add">
-    {% block dashboard_content %}
-      <p><strong>Usuário</strong>: {{ user }}</p>
-      <p><strong>E-mail</strong>: {{ user.email }}</p>
-      <p> <strong> Perfil</strong>: 
+  {% block dashboard_content %}
+    <div class="active-user">
+      <h3>Você está logado como:</h3>
+      <p class="label">Usuário:</p>
+      <p>{{ user }}</p>
+      <p class="label">E-mail:</p>
+      <p>{{ user.email }}</p>
+      <p class="label">Perfil:</p>
+      <p>
       {% for p in perfil %}
-      {{p.name}} 
+        {{p.name}}
       {% endfor %} </p>
-    {% endblock %}
-  </div>
-  <div style="height: 100px;"></div>
+    </div>
+  {% endblock %}
+  <div class="endPage"></div>
 {% endblock %}

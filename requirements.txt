@@ -10,7 +10,6 @@ django-sass-processor==0.7.4
 django-static-jquery==2.1.4
 gunicorn==19.9.0
 libsass==0.19.4
-pkg-resources==0.0.0
 psycopg2==2.8.3
 pytz==2019.1
 PyYAML==5.1.2

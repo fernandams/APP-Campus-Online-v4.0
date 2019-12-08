@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'campus_app/static')
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'campus_app/static/campus_app/js', 'serviceworker.js')
 PWA_APP_NAME = 'Campus Online'
-PWA_APP_DESCRIPTION = "Plataforma de veiculação de notícias e agregadora das demais mídias" \
+PWA_APP_DEION = "Plataforma de veiculação de notícias e agregadora das demais mídias" \
                       "do Campus Online"
 PWA_APP_THEME_COLOR = '#b5202e'
 PWA_APP_BACKGROUND_COLOR = '#6c0318'
@@ -98,8 +98,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', 'campus_online_app'),
         'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', '123'),
-        'HOST': '127.0.0.1',
+	      'PASSWORD': os.environ.get('DB_PASS', '5rL51OA9kALUnJgkJYpx'),
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -138,7 +138,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, Java, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'

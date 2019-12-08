@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Noticia(models.Model):
-    cod_usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name="usuario_noticia")
+    usuarios = models.ManyToManyField(User, related_name="usuario_noticia")
     titulo = models.CharField(max_length=200)
     palavras_chave = models.CharField(max_length=200, null=True, blank=True, default='')
     resumo = models.CharField(max_length=300, null=True, blank=True, default='')

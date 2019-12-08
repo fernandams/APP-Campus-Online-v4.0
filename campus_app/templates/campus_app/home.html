@@ -14,8 +14,14 @@
             <div class="dateDivider">{{ noticia.data_publicacao | date:"d/m/Y" }}</div>
             <div class="newsContent">
               <div class="headline upper">{{ noticia.titulo }}</div>
-              {% if noticia.cod_usuario.first_name %}
-                <div class="author"><b>Por {{ noticia.cod_usuario.first_name }} {{ noticia.cod_usuario.last_name }}</b></div>
+              {% if noticia.usuarios %}
+                <div class="author"><b>Por </b>
+                  {% for u in noticia.usuarios.all %}
+                    <spam> {{ u.first_name }} {{ u.last_name }}, </spam>
+                  {% empty %}
+                  {% endfor %}
+
+                </div>
               {% endif %}
               <div class="adtInfo">
                 <div class="timestamp">{{ noticia.data_publicacao | date:"d/m/Y  H:i" }}</div>

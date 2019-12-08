@@ -7,7 +7,7 @@
         <form method="post">
           {% csrf_token %}
           <h3>Publicado por</h3>
-          <p>{{ form.cod_usuario }}</p>
+          <p>{{ form.usuarios }}</p>
           <h3>Título</h3>
           <p>{{ form.titulo }}</p>
           <div class="error">{{ form.titulo.errors }}</div>

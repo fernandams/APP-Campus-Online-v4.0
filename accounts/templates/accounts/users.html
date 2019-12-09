@@ -2,7 +2,7 @@
 
 {% block dashboard_content %}
   <ul class="users-list">
-    <a class="link" href="{% url 'new_user' %}"><b>Novo usuário</b></a>
+    <a class="link" href="{% url 'new_user' %}"><b>Novo Usuário</b></a>
     <hr>
   {% for user in users|dictsort:"first_name" %}
     <li>

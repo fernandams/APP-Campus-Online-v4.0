@@ -98,8 +98,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME', 'campus_online_app'),
         'USER': os.environ.get('DB_USER', 'postgres'),
-	      'PASSWORD': os.environ.get('DB_PASS', '5rL51OA9kALUnJgkJYpx'),
-        'HOST': 'localhost',
+        'PASSWORD': os.environ.get('DB_PASS', '123'),
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }

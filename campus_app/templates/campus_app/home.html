@@ -17,7 +17,7 @@
               {% if noticia.usuarios %}
                 <div class="author"><b>Por </b>
                   {% for u in noticia.usuarios.all %}
-                    <spam> {{ u.first_name }} {{ u.last_name }}, </spam>
+                    <spam> {{ u.first_name }} {{ u.last_name }} | </spam>
                   {% empty %}
                   {% endfor %}
 

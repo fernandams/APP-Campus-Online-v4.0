@@ -106,6 +106,19 @@
       <footer class="footer">
         <h4><span id="year">2019</span> FAC/CIC</h4>
       </footer>
+      <script>
+        $(document).ready(function () {
+          var header = document.getElementsByClassName("app-header")[0]
+          var logo = document.getElementsByClassName("app-logo")[0]
+          $(document).scroll(function() {
+            if ($(document).scrollTop() < 200) {
+              header.id = ""
+            } else if ($(document).scrollTop() >= 200) {
+              header.id = "app-header-scrolled"
+            }
+          })
+        })
+      </script>
     </div>
   </body>
 </html>

@@ -7,7 +7,10 @@
         <form method="post">
           {% csrf_token %}
           <h3>Publicado por</h3>
-          <p>{{ form.usuarios }}</p>
+          <span id="open-users" onclick="openUsers()">{% fa5_icon 'chevron-down' 'fas' %} Exibir usuários</span>
+          <div id="users-container">
+            {{ form.usuarios }}
+          </div>
           <h3>Título</h3>
           <p>{{ form.titulo }}</p>
           <div class="error">{{ form.titulo.errors }}</div>
@@ -85,5 +88,11 @@
         $(".timestamp").text(today)
 
       });
+
+      function openUsers () {
+        $("#users-container").slideToggle("slow")
+        $("#open-users i").toggleClass("fa-chevron-down")
+        $("#open-users i").toggleClass("fa-chevron-up")
+      }
     </script>
 {% endblock %}

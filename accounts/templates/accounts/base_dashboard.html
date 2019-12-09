@@ -23,6 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'campus_app/imagens/favicon.ico' %}" type="image/x-icon" />
+    <script src="{% static 'campus_app/js/general.js' %}"></script>
+
   </head>
   <body>
     <div class="app app-dashboard">
@@ -94,7 +96,7 @@
           }
           $( document ).ready(function() {
             var today = new Date()
-            $("#year").text(today.getFullYear())
+            $("#year").text(today.getFullYear())  // Define a data do footer
           })
         </script>
       </header>

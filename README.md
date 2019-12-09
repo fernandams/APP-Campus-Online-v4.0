@@ -1,6 +1,8 @@
 # APP-Campus-Online-v4.0
 Repositório para o desenvolvimento da quarta versão do App do Campus Multiplataforma (2019/2).
 
+Desenvolvido por Fernanda Macedo de Sousa e João Lucas Azevedo Yamin Rodrigues da Cunha na disciplina Tópicos Avançados em Computadores - Programação Web do departamento de CIC/UnB. Projeto acompanhado por Wanessa Alves, aluna do departamento FAC/UnB e atual editora do aplicativo do Campus Multiplataforma.
+
 Dúvidas gerais em relação ao processo de desenvolvimento, consulte a [Documentação Oficial do Django](https://docs.djangoproject.com/pt-br/2.2/), que foi utilizada amplamente nesta aplicação. A versão utilizada foi a Django 2.2.
 
 Em caso de dúvidas relacionado a este projeto, você pode contatar os desenvolvedores da v4.0 pelo GitHub: [fernandams](https://github.com/fernandams) e [jlyamin](https://github.com/jlyamin).

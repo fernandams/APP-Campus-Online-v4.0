@@ -1,4 +1,4 @@
-# APP-Campus-Online-v4.0
+# APP-Campus-Multiplataforma-v4.0
 Repositório para o desenvolvimento da quarta versão do App do Campus Multiplataforma (2019/2).
 
 Desenvolvido por Fernanda Macedo de Sousa e João Lucas Azevedo Yamin Rodrigues da Cunha na disciplina Tópicos Avançados em Computadores - Programação Web do departamento de CIC/UnB. Projeto acompanhado por Wanessa Alves, aluna do departamento FAC/UnB e atual editora do aplicativo do Campus Multiplataforma.

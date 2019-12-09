@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from .models import Noticia
+from django.contrib.auth.models import Group
 from .forms import NoticiaForm
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import UpdateView, DeleteView, FormView
@@ -40,6 +41,7 @@ class NoticiaView(LoginRequiredMixin, PermissionRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['noticias'] = Noticia.objects.order_by('-data_publicacao').all
+        context['perfil'] = Group.objects.filter(user = self.request.user)
         return context
 
       
@@ -56,7 +58,7 @@ class NoticiaCreate(LoginRequiredMixin, PermissionRequiredMixin, FormView):
 class NoticiaUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     permission_required = 'campus_app.change_noticia'
     model = Noticia
-    fields = ['titulo', 'texto', 'prioridade',
+    fields = ['usuarios','titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']
     success_url = reverse_lazy('noticia_list')
     template_name = 'campus_app/noticia_update_form.html'

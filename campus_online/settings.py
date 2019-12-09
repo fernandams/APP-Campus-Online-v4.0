@@ -150,7 +150,7 @@ LOGOUT_URL = 'logout'
 
 # # E-mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = 'APP Campus Online <campusaplicativo@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Campus Multiplataforma <campusaplicativo@gmail.com>'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'campusaplicativo@gmail.com'
 EMAIL_HOST_PASSWORD = 'campusitoapp'

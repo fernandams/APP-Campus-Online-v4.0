@@ -16,13 +16,21 @@
     <hr>
     <ul>
       {% for noticia in noticias %}
-        <li class="news-management">
-          <a class="link-outline" href="{% url 'noticia_update_form' noticia.id %}"><b>Editar</b></a>
-          <span class="title"> {{ noticia.titulo }}</span>
-          <p class="priority"><b>Prioridade: </b>{{ noticia.prioridade }} </p>
-          <p class="date"><b>Data de publicação: </b>{{ noticia.data_publicacao }}</p>
-        </li>
-        <hr>
+          <li class="news-management">
+            {% if user.is_superuser or user in noticia.usuarios.all %} 
+              <a class="link-outline" href="{% url 'noticia_update_form' noticia.id %}"><b>Editar</b></a>
+            {% else %}
+              {% for p in perfil %}
+                {% if p.name == "Editor" %}
+                  <a class="link-outline" href="{% url 'noticia_update_form' noticia.id %}"><b>Editar</b></a>
+                {% endif %}        
+              {%endfor%}
+            {% endif %}
+            <span class="title"> {{ noticia.titulo }}</span>
+            <p class="priority"><b>Prioridade: </b>{{ noticia.prioridade }} </p>
+            <p class="date"><b>Data de publicação: </b>{{ noticia.data_publicacao }}</p>
+          </li>
+          <hr>
       {% endfor %}
     </ul>
   </div>

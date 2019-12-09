@@ -58,7 +58,7 @@ class NoticiaCreate(LoginRequiredMixin, PermissionRequiredMixin, FormView):
 class NoticiaUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     permission_required = 'campus_app.change_noticia'
     model = Noticia
-    fields = ['titulo', 'texto', 'prioridade',
+    fields = ['usuarios','titulo', 'texto', 'prioridade',
               'link_externo', 'link_video', 'link_foto']
     success_url = reverse_lazy('noticia_list')
     template_name = 'campus_app/noticia_update_form.html'
